@@ -12,6 +12,20 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
+  border: 1px solid red;
+}
+.page-decoration-div-container {
+  display: flex;
+  flex-direction: row;
+  border: 1px solid green;
+  width: 600px;
+}
+.page-decoration-wrapper {
+  padding: 50px 100px;
+  border: 1px solid blue;
+  align-items: space-between;
+  margin: 0 auto;
 }
 
 .grid {
@@ -20,8 +34,9 @@ body {
   justify-content: center;
   flex-wrap: wrap;
   height: 100%;
-  max-height: 600px;
-  max-width: 600px;
+  width: 525px;
+  height: 600px;
+  margin: 30px;
 }
 
 .grid div{
