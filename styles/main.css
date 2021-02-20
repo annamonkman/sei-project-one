@@ -52,3 +52,7 @@ body {
   background-size: contain;
   cursor: pointer;
 }
+
+.grid div.safe-start-land {
+  background-color: rgb(173, 199, 135);
+}

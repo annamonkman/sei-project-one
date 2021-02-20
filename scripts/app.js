@@ -14,6 +14,8 @@ function init() {
   const gridStartPosition = 0
   let snailCurrentPosition = 217
 
+  const safeStartLandClass = 'safe-start-land'
+
   // * Make a grid
   function createGrid(gridStartPosition) {
     for (let i = 0; i < cellCount; i++) {
@@ -56,11 +58,15 @@ function init() {
     addSnail(snailCurrentPosition)
   }
 
-  // * add Start land to Grid
+  // * Add safe start land to grid
+  // function addSafeStartLandClass(position) {
+  //   cells[position].classList.add(safeStartLandClass)
+  // }
 
   // * Event Listeners
   document.addEventListener('keyup', handleKeyUp)
   createGrid(gridStartPosition)
+  
 
 
 
