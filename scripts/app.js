@@ -5,19 +5,24 @@ function init() {
   const grid = document.querySelector('.grid')
 
   const width = 14
-  const height = 16
+  const height = 13
   const cellCount = width * height
   const cells = []
 
   const snailClass = 'snail'
-  const snailStartPosition = 217
+  const snailStartPosition = 175
   const gridStartPosition = 0
-  let snailCurrentPosition = 217
+  let snailCurrentPosition = 175
 
-  const safeStartLandClass = 'safe-start-land'
+  const safeLandClass = 'safe'
+  const safeLand = [210, 211, 212]
+  // console.log('SAFESTARTLAND', safeLand)
+
+  const unsafeLandClass = 'unsafe'
+  const unsafeLand = [14, 15, 16] // this is an object typeof
 
   // * Make a grid
-  function createGrid(gridStartPosition) {
+  function createGrid() {
     for (let i = 0; i < cellCount; i++) {
       const cell = document.createElement('div')
       cell.textContent = i
@@ -35,6 +40,17 @@ function init() {
   // * Remove Snail from grid
   function removeSnail(position) {
     cells[position].classList.remove(snailClass)
+  }
+
+  // * Add safe land class to cells
+  function addSafeLandClass(args) {
+    cells[args].classList.add(safeLandClass)
+    console.log('ARGS>>', args)
+  }
+
+// * Add unsafe land class to cells
+  function addUnsafeLandClass(args) {
+    cells[args].classList.add(unsafeLandClass)
   }
 
   // * Move Snail
@@ -58,22 +74,66 @@ function init() {
     addSnail(snailCurrentPosition)
   }
 
-  // * Add safe start land to grid
-  // function addSafeStartLandClass(position) {
-  //   cells[position].classList.add(safeStartLandClass)
-  // }
+  // * check if snail safe - for each?
+    function handle {
+      if (className === 'unsafe') {
+        console.log('YOU DIED')
+      } else {
+        console.log('SNAIL IS SAFE')
+      }
+    }
 
-  // * Event Listeners
-  document.addEventListener('keyup', handleKeyUp)
-  createGrid(gridStartPosition)
+    // * timers for rats
+
+    // * timers for crisp packets
+
+    // * timers for logs
+
+    // * add fire
+
+    // * add holes
+
+    // * add pipes
+
+    // * add land strip
+
+    // * add road
+
+    // * add water
   
 
+  // * Event Listeners, calling functions
+  document.addEventListener('keyup', handleKeyUp)
+  createGrid(gridStartPosition)
+
+  addSafeLandClass.apply(safeLand)
+
+  addUnsafeLandClass.apply(unsafeLand)
+
+  // addSafeLandClass(181)
+  // addSafeLandClass(180)
+  // addSafeLandClass(179)
+  // addSafeLandClass(178)
+  // addSafeLandClass(177)
+  // addSafeLandClass(176)
+  // addSafeLandClass(175)
+  // addSafeLandClass(174)
+  // addSafeLandClass(173)
+  // addSafeLandClass(172)  
+  // addSafeLandClass(171)
+  // addSafeLandClass(170)
+  // addSafeLandClass(169)
+  // addSafeLandClass(168)
+
+  // addUnsafeLandClass(28)
+  // addUnsafeLandClass(29)
+  // addUnsafeLandClass(30)
+  // addUnsafeLandClass(31)
 
 
 
 
-
-
+//on page load open up start game div
 
 
 

@@ -34,25 +34,29 @@ body {
   justify-content: center;
   flex-wrap: wrap;
   height: 100%;
-  width: 525px;
-  height: 600px;
+  width: 600px;
+  height: 557.142857px;
   margin: 30px;
 }
 
 .grid div{
   border: 1px solid lightgray;
   flex-grow: 1;
-  height: calc(100% / 16);
+  height: calc(100% / 13);
   width: calc(100% / 14);
 }
 
 .grid div.snail {
-  background-image: url('../images/snail.jpeg');
+  background-image: url('../images/snail.jpg');
   background-repeat: no-repeat;
   background-size: contain;
   cursor: pointer;
 }
 
-.grid div.safe-start-land {
+.grid div.safe {
   background-color: rgb(173, 199, 135);
+}
+
+.grid div.unsafe {
+  background-color: rgb(231, 123, 123);
 }
