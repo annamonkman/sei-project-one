@@ -1,0 +1,39 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  margin: 0;
+}
+
+.page-wrapper {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.grid {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  height: 100%;
+  max-height: 600px;
+  max-width: 600px;
+}
+
+.grid div{
+  border: 1px solid lightgray;
+  flex-grow: 1;
+  height: calc(100% / 16);
+  width: calc(100% / 14);
+}
+
+.grid div.snail {
+  background-image: url('../images/snail.jpeg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  cursor: pointer;
+}
