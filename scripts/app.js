@@ -78,16 +78,16 @@ function init() {
     addSnail(snailCurrentPosition)
   }
 
-  // * check if snail safe - for each?
+  // * check if snail safe
   // if snailclass current position is same as class remove snail. 
-  function handleDie() {
-    if (cell.classList.contains(ratClass)) {
+  function snailDie() {
+    if (cells[snailCurrentPosition].classList.contains(unsafeLandClass && snailClass) === true) {
       removeSnail()
     } else {
       console.log('SNAIL IS SAFE')
     }
   }
-  handleDie()
+  console.log('snailDie()>>', snailDie())
 
   
   // * Add rat to grid
