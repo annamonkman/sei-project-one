@@ -107,18 +107,19 @@ function init() {
     console.log('RAT CURRENT POSITION', ratCurrentPosition)
     
     ratTimer = setInterval(() => {
-    
-      if (ratCurrentPosition <= 167 && ratCurrentPosition >= 154) {
-        ratCurrentPosition--
-        clearInterval(ratTimer)
-        return
-      }
-      console.log('RAT UPDATED CURRENT>>', ratCurrentPosition)
 
       removeUnsafeLandClass(ratCurrentPosition)
+      if (ratCurrentPosition <= 167 && ratCurrentPosition >= 154 + 1) {
+        ratCurrentPosition--
+      } else {
+        clearInterval(ratTimer)
+      }
+      console.log('RAT UPDATED CURRENT>>', ratCurrentPosition)
+    
       addUnsafeLandClass(ratCurrentPosition)
 
     }, 800)
+
   }
     
     
