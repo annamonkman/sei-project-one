@@ -14,12 +14,16 @@ function init() {
   const gridStartPosition = 0
   let snailCurrentPosition = 175
 
-  const safeLandClass = 'safe'
-  const safeLand = [210, 211, 212]
+  // const safeLandClass = 'safe'
+  // const safeLand = [210, 211, 212]
   // console.log('SAFESTARTLAND', safeLand)
 
   const unsafeLandClass = 'unsafe'
-  const unsafeLand = [14, 15, 16] // this is an object typeof
+  // const unsafeLand = [14, 15, 16] // this is an object typeof
+
+  // const ratClass = 'unsafe'
+  // const ratStartPosition = 167
+  // let ratCurrentPosition = 167
 
   // * Make a grid
   function createGrid() {
@@ -43,14 +47,14 @@ function init() {
   }
 
   // * Add safe land class to cells
-  function addSafeLandClass(args) {
-    cells[args].classList.add(safeLandClass)
-    console.log('ARGS>>', args)
-  }
+  // function addSafeLandClass(args) {
+  //   cells[args].classList.add(safeLandClass)
+  //   console.log('ARGS>>', args)
+  // }
 
-// * Add unsafe land class to cells
-  function addUnsafeLandClass(args) {
-    cells[args].classList.add(unsafeLandClass)
+  // * Add unsafe land class to cells
+  function addUnsafeLandClass(position) {
+    cells[position].classList.add(unsafeLandClass)
   }
 
   // * Move Snail
@@ -75,40 +79,58 @@ function init() {
   }
 
   // * check if snail safe - for each?
-    function handle {
-      if (className === 'unsafe') {
-        console.log('YOU DIED')
-      } else {
-        console.log('SNAIL IS SAFE')
-      }
+  // if snailclass current position is same as class remove snail. 
+  function handleDie() {
+    if (cell.classList.contains(ratClass)) {
+      removeSnail()
+    } else {
+      console.log('SNAIL IS SAFE')
     }
+  }
+  handleDie()
 
-    // * timers for rats
+  
+  // * Add rat to grid
+  // function addRat(position) {
+  //   cells[position].classList.add(ratClass)
+  // }
 
-    // * timers for crisp packets
+  // * Remove rat from grid
+  // function removeRat(position) {
+  //   cells[position].classList.remove(ratClass)
+  // }
 
-    // * timers for logs
+  // * timers for rats
+  // const ratInterval = setInterval(() => {
+  //   addRat(ratCurrentPosition)
+  //   removeRat(ratCurrentPosition)
+  //   ratCurrentPosition--
+  // }, 1000)
 
-    // * add fire
+  // * timers for crisp packets
 
-    // * add holes
+  // * timers for logs
 
-    // * add pipes
+  // * add fire
 
-    // * add land strip
+  // * add holes
 
-    // * add road
+  // * add pipes
 
-    // * add water
+  // * add land strip
+
+  // * add road
+
+  // * add water
   
 
   // * Event Listeners, calling functions
   document.addEventListener('keyup', handleKeyUp)
   createGrid(gridStartPosition)
 
-  addSafeLandClass.apply(safeLand)
+  // addSafeLandClass(safeLand)
 
-  addUnsafeLandClass.apply(unsafeLand)
+  // addUnsafeLandClass(unsafeLand)
 
   // addSafeLandClass(181)
   // addSafeLandClass(180)
@@ -125,10 +147,38 @@ function init() {
   // addSafeLandClass(169)
   // addSafeLandClass(168)
 
-  // addUnsafeLandClass(28)
-  // addUnsafeLandClass(29)
-  // addUnsafeLandClass(30)
-  // addUnsafeLandClass(31)
+  addUnsafeLandClass(28)
+  addUnsafeLandClass(29)
+  addUnsafeLandClass(30)
+  addUnsafeLandClass(31)
+  addUnsafeLandClass(32)
+  addUnsafeLandClass(33)
+  addUnsafeLandClass(34)
+  addUnsafeLandClass(35)
+  addUnsafeLandClass(36)
+  addUnsafeLandClass(37)
+  addUnsafeLandClass(38)
+  addUnsafeLandClass(39)
+  addUnsafeLandClass(40)
+  addUnsafeLandClass(41)
+  addUnsafeLandClass(42)
+  addUnsafeLandClass(43)
+  addUnsafeLandClass(44)
+  addUnsafeLandClass(45)
+  addUnsafeLandClass(46)
+  addUnsafeLandClass(47)
+  addUnsafeLandClass(48)
+  addUnsafeLandClass(49)
+  addUnsafeLandClass(50)
+  addUnsafeLandClass(51)
+  addUnsafeLandClass(52)
+  addUnsafeLandClass(53)
+  addUnsafeLandClass(54)
+  addUnsafeLandClass(55)
+  addUnsafeLandClass(56)
+
+
+
 
 
 
