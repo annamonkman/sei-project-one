@@ -14,6 +14,8 @@ function init() {
   const gridStartPosition = 0
   let snailCurrentPosition = 175
 
+  let ratTimer
+
   // const safeLandClass = 'safe'
   // const safeLand = [210, 211, 212]
   // console.log('SAFESTARTLAND', safeLand)
@@ -22,8 +24,8 @@ function init() {
   // const unsafeLand = [14, 15, 16] // this is an object typeof
 
   // const ratClass = 'unsafe'
-  // const ratStartPosition = 167
-  // let ratCurrentPosition = 167
+  const ratStartPosition = 167
+  let ratCurrentPosition = 167
 
   // * Make a grid
   function createGrid() {
@@ -57,6 +59,11 @@ function init() {
     cells[position].classList.add(unsafeLandClass)
   }
 
+  // * remove unsafe land class from cells
+  function removeUnsafeLandClass(position) {
+    cells[position].classList.remove(unsafeLandClass)
+  }
+
   // * Move Snail
   function handleKeyUp(event) {
     const key = event.keyCode
@@ -76,20 +83,59 @@ function init() {
     }
     
     addSnail(snailCurrentPosition)
+    snailDie()
   }
 
   // * check if snail safe
   // if snailclass current position is same as class remove snail. 
   function snailDie() {
-    if (cells[snailCurrentPosition].classList.contains(unsafeLandClass && snailClass) === true) {
-      removeSnail()
+    console.log('snail current pos >>', snailCurrentPosition)
+    if (cells[snailCurrentPosition].classList.contains(unsafeLandClass) === true)  {
+      setTimeout(() => {
+        window.alert('snail died')
+      }, 1000)
     } else {
       console.log('SNAIL IS SAFE')
     }
   }
-  console.log('snailDie()>>', snailDie())
+  // console.log('snailDie()>>', snailDie())
 
-  
+  // * animate unsafe land
+
+  function moveRat() {
+    addUnsafeLandClass(ratCurrentPosition)
+    console.log('RAT CURRENT POSITION', ratCurrentPosition)
+    
+    ratTimer = setInterval(() => {
+    
+      if (ratCurrentPosition <= 167 && ratCurrentPosition >= 154) {
+        ratCurrentPosition--
+        clearInterval(ratTimer)
+        return
+      }
+      console.log('RAT UPDATED CURRENT>>', ratCurrentPosition)
+
+      removeUnsafeLandClass(ratCurrentPosition)
+      addUnsafeLandClass(ratCurrentPosition)
+
+    }, 800)
+  }
+    
+    
+
+
+  // * aniamte rat smoothly test
+
+  // const rat = document.getElementById('#rat')
+  // let start = Date.now()
+
+  // let timer = setInterval(() => {
+  //   let timePassed = Date.now() - start
+  //   rat.style.left = timePassed / 5 + 'px'
+  //   if (timePassed >= 2000) clearInterval(timer)
+  // }, 20)
+
+
   // * Add rat to grid
   // function addRat(position) {
   //   cells[position].classList.add(ratClass)
@@ -128,6 +174,7 @@ function init() {
   document.addEventListener('keyup', handleKeyUp)
   createGrid(gridStartPosition)
 
+  moveRat(ratCurrentPosition)
   // addSafeLandClass(safeLand)
 
   // addUnsafeLandClass(unsafeLand)
@@ -176,6 +223,51 @@ function init() {
   addUnsafeLandClass(54)
   addUnsafeLandClass(55)
   addUnsafeLandClass(56)
+  addUnsafeLandClass(57)
+  addUnsafeLandClass(58)
+  addUnsafeLandClass(59)
+  addUnsafeLandClass(60)
+  addUnsafeLandClass(61)
+  addUnsafeLandClass(62)
+  addUnsafeLandClass(63)
+  addUnsafeLandClass(64)
+  addUnsafeLandClass(65)
+  addUnsafeLandClass(66)
+  addUnsafeLandClass(67)
+  addUnsafeLandClass(68)
+  addUnsafeLandClass(69)
+  addUnsafeLandClass(70)
+  addUnsafeLandClass(71)
+  addUnsafeLandClass(72)
+  addUnsafeLandClass(73)
+  addUnsafeLandClass(74)
+  addUnsafeLandClass(75)
+  addUnsafeLandClass(76)
+  addUnsafeLandClass(77)
+  addUnsafeLandClass(78)
+  addUnsafeLandClass(79)
+  addUnsafeLandClass(80)
+  addUnsafeLandClass(81)
+  addUnsafeLandClass(82)
+  addUnsafeLandClass(83)
+  addUnsafeLandClass(84)
+  addUnsafeLandClass(85)
+  addUnsafeLandClass(86)
+  addUnsafeLandClass(87)
+  addUnsafeLandClass(88)
+  addUnsafeLandClass(89)
+  addUnsafeLandClass(90)
+  addUnsafeLandClass(91)
+  addUnsafeLandClass(92)
+  addUnsafeLandClass(93)
+  addUnsafeLandClass(94)
+  addUnsafeLandClass(95)
+  addUnsafeLandClass(96)
+  addUnsafeLandClass(97)
+
+
+
+
 
 
 

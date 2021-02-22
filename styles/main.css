@@ -60,3 +60,9 @@ body {
 .grid div.unsafe {
   background-color: rgb(231, 123, 123);
 }
+
+#rat {
+  background-image: url('../images/rat.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+}
