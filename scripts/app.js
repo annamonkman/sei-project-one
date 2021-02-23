@@ -26,6 +26,7 @@ function init() {
   // console.log('SAFESTARTLAND', safeLand)
 
   const unsafeLandClass = 'unsafe'
+  const unsafeLandArray = [0, 1, 3, 4, 6, 8, 9, 11, 12, 14, 15, 17, 18, 20, 22, 23, 25, 26, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, ]
   // const unsafeLand = [14, 15, 16] // this is an object typeof
 
   // const ratClass = 'unsafe'
@@ -181,9 +182,10 @@ function init() {
   function addRoadClass(position) {
     cells.forEach(cell => {
       cell[position].classList.add(roadClass)
+      console.log('Added road class for each')
     })
   }
-  addRoadClass(Number(roadArray))
+  addRoadClass(roadArray)
   console.log('ROAD ARRAY', roadArray)
 
   // for (let i = 112; i <= 167; i++) {
