@@ -16,18 +16,23 @@ function init() {
 
   let ratTimer
 
+  const unsafeLandClass = 'unsafe'
+  const unsafeClass = 'unsafe'
   const roadClass = 'road'
+  const waterClass = 'water'
   const pipeClass = 'pipe'
+  const startStripClass = 'start-strip'
+  const middleStripClass = 'middle-strip'
 
+  const unsafeLandArray = [0, 1, 3, 4, 6, 8, 9, 11, 12, 14, 15, 17, 18, 20, 22, 23, 25, 26, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97]
   const roadArray = [112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 140, 141, 142, 143, 144, 145, 146, 147, 148, 149, 150, 151, 152, 153, 154, 155, 156, 157, 158, 159, 160, 161, 162, 163, 164, 165, 166, 167]
-
+  const waterArray = [0, 1, 3, 4, 6, 8, 9, 11, 12, 14, 15, 17, 18, 20, 22, 23, 25, 26, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97]
+  const startStripArray = [168, 169, 170, 171, 172, 173, 174, 175, 176, 177, 178, 179, 180, 181]
+  const middleStripArray = [98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111]
   // const safeLandClass = 'safe'
   // const safeLand = [210, 211, 212]
   // console.log('SAFESTARTLAND', safeLand)
 
-  const unsafeLandClass = 'unsafe'
-  const unsafeLandArray = [0, 1, 3, 4, 6, 8, 9, 11, 12, 14, 15, 17, 18, 20, 22, 23, 25, 26, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, ]
-  // const unsafeLand = [14, 15, 16] // this is an object typeof
 
   // const ratClass = 'unsafe'
   const ratStartPosition = 167
@@ -52,22 +57,6 @@ function init() {
   // * Remove Snail from grid
   function removeSnail(position) {
     cells[position].classList.remove(snailClass)
-  }
-
-  // * Add safe land class to cells
-  // function addSafeLandClass(args) {
-  //   cells[args].classList.add(safeLandClass)
-  //   console.log('ARGS>>', args)
-  // }
-
-  // * Add unsafe land class to cells
-  function addUnsafeLandClass(position) {
-    cells[position].classList.add(unsafeLandClass)
-  }
-
-  // * remove unsafe land class from cells
-  function removeUnsafeLandClass(position) {
-    cells[position].classList.remove(unsafeLandClass)
   }
 
   // * Move Snail
@@ -96,7 +85,7 @@ function init() {
   // if snailclass current position is same as class remove snail. 
   function snailDie() {
     console.log('snail current pos >>', snailCurrentPosition)
-    if (cells[snailCurrentPosition].classList.contains(unsafeLandClass) === true)  {
+    if (cells[snailCurrentPosition].classList.contains(unsafeLandClass) === true || cells[snailCurrentPosition].classList.contains(unsafeClass))  {
       setTimeout(() => {
         window.alert('snail died')
       }, 1000)
@@ -109,12 +98,12 @@ function init() {
   // * animate unsafe land
 
   function moveRat() {
-    addUnsafeLandClass(ratCurrentPosition)
+    addUnsafeClass(ratCurrentPosition)
     console.log('RAT CURRENT POSITION', ratCurrentPosition)
     
     ratTimer = setInterval(() => {
 
-      removeUnsafeLandClass(ratCurrentPosition)
+      removeUnsafeClass(ratCurrentPosition)
       if (ratCurrentPosition <= 167 && ratCurrentPosition >= 154 + 1) {
         console.log('rat moving')
         ratCurrentPosition--
@@ -125,7 +114,7 @@ function init() {
       }
       console.log('RAT UPDATED CURRENT>>', ratCurrentPosition)
     
-      addUnsafeLandClass(ratCurrentPosition)
+      addUnsafeClass(ratCurrentPosition)
 
     }, 800)
 
@@ -176,150 +165,62 @@ function init() {
     cells[position].classList.add(pipeClass)
   }
 
-  // * add land strip
+  // * add start strip
+  function addStartStripClass(positions) {
+    positions.forEach(item => cells[item].classList.add(startStripClass))
+  }
 
   // * add road
-  function addRoadClass(position) {
-    cells.forEach(cell => {
-      cell[position].classList.add(roadClass)
-      console.log('Added road class for each')
-    })
+  function addRoadClass(positions) {
+    positions.forEach(item => cells[item].classList.add(roadClass))
   }
-  addRoadClass(roadArray)
-  console.log('ROAD ARRAY', roadArray)
 
-  // for (let i = 112; i <= 167; i++) {
-  //   // cells[i].classList.add(roadClass)
-  //   addRoadClass(i)
+  // * add middle strip
+  function addMiddleStripClass(positions) {
+    positions.forEach(item => cells[item].classList.add(middleStripClass))
+  }
+  
+  // * add water
+  function addWaterClass(positions) {
+    positions.forEach(item => cells[item].classList.add(waterClass))
+  }
+
+  // * Add safe land class to cells
+  // function addSafeLandClass(args) {
+  //   cells[args].classList.add(safeLandClass)
+  //   console.log('ARGS>>', args)
   // }
 
+  // * Add unsafe land class to cells
+  function addUnsafeLandClass(positions) {
+    positions.forEach(item => cells[item].classList.add(unsafeLandClass))
+  }
 
+  function addUnsafeClass(position) {
+    cells[position].classList.add(unsafeClass)
+  }
 
-  // * add water
+  // * remove unsafe land class from cells
+
+  // function removeUnsafeLandClass(positions) {
+  //   positions.forEach(item => cells[item].classList.remove(unsafeLandClass))
+  // }
+
+  function removeUnsafeClass(position) {
+    cells[position].classList.remove(unsafeClass)
+  }
   
 
   // * Event Listeners, calling functions
+
   document.addEventListener('keyup', handleKeyUp)
   createGrid(gridStartPosition)
 
   moveRat(ratCurrentPosition)
-  // addSafeLandClass(safeLand)
-
-  // addUnsafeLandClass(unsafeLand)
 
   // addSafeLandClass(181)
-  // addSafeLandClass(180)
-  // addSafeLandClass(179)
-  // addSafeLandClass(178)
-  // addSafeLandClass(177)
-  // addSafeLandClass(176)
-  // addSafeLandClass(175)
-  // addSafeLandClass(174)
-  // addSafeLandClass(173)
-  // addSafeLandClass(172)  
-  // addSafeLandClass(171)
-  // addSafeLandClass(170)
-  // addSafeLandClass(169)
-  // addSafeLandClass(168)
 
-  addUnsafeLandClass(28)
-  addUnsafeLandClass(29)
-  addUnsafeLandClass(30)
-  addUnsafeLandClass(31)
-  addUnsafeLandClass(32)
-  addUnsafeLandClass(33)
-  addUnsafeLandClass(34)
-  addUnsafeLandClass(35)
-  addUnsafeLandClass(36)
-  addUnsafeLandClass(37)
-  addUnsafeLandClass(38)
-  addUnsafeLandClass(39)
-  addUnsafeLandClass(40)
-  addUnsafeLandClass(41)
-  addUnsafeLandClass(42)
-  addUnsafeLandClass(43)
-  addUnsafeLandClass(44)
-  addUnsafeLandClass(45)
-  addUnsafeLandClass(46)
-  addUnsafeLandClass(47)
-  addUnsafeLandClass(48)
-  addUnsafeLandClass(49)
-  addUnsafeLandClass(50)
-  addUnsafeLandClass(51)
-  addUnsafeLandClass(52)
-  addUnsafeLandClass(53)
-  addUnsafeLandClass(54)
-  addUnsafeLandClass(55)
-  addUnsafeLandClass(56)
-  addUnsafeLandClass(57)
-  addUnsafeLandClass(58)
-  addUnsafeLandClass(59)
-  addUnsafeLandClass(60)
-  addUnsafeLandClass(61)
-  addUnsafeLandClass(62)
-  addUnsafeLandClass(63)
-  addUnsafeLandClass(64)
-  addUnsafeLandClass(65)
-  addUnsafeLandClass(66)
-  addUnsafeLandClass(67)
-  addUnsafeLandClass(68)
-  addUnsafeLandClass(69)
-  addUnsafeLandClass(70)
-  addUnsafeLandClass(71)
-  addUnsafeLandClass(72)
-  addUnsafeLandClass(73)
-  addUnsafeLandClass(74)
-  addUnsafeLandClass(75)
-  addUnsafeLandClass(76)
-  addUnsafeLandClass(77)
-  addUnsafeLandClass(78)
-  addUnsafeLandClass(79)
-  addUnsafeLandClass(80)
-  addUnsafeLandClass(81)
-  addUnsafeLandClass(82)
-  addUnsafeLandClass(83)
-  addUnsafeLandClass(84)
-  addUnsafeLandClass(85)
-  addUnsafeLandClass(86)
-  addUnsafeLandClass(87)
-  addUnsafeLandClass(88)
-  addUnsafeLandClass(89)
-  addUnsafeLandClass(90)
-  addUnsafeLandClass(91)
-  addUnsafeLandClass(92)
-  addUnsafeLandClass(93)
-  addUnsafeLandClass(94)
-  addUnsafeLandClass(95)
-  addUnsafeLandClass(96)
-  addUnsafeLandClass(97)
-  addUnsafeLandClass(0)
-  addUnsafeLandClass(1)
-  addUnsafeLandClass(14)
-  addUnsafeLandClass(15)
-  addUnsafeLandClass(97)
-  addUnsafeLandClass(3)
-  addUnsafeLandClass(17)
-  addUnsafeLandClass(4)
-  addUnsafeLandClass(18)
-  addUnsafeLandClass(6)
-  addUnsafeLandClass(20)
-  addUnsafeLandClass(8)
-  addUnsafeLandClass(9)
-  addUnsafeLandClass(22)
-  addUnsafeLandClass(23)
-  addUnsafeLandClass(11)
-  addUnsafeLandClass(12)
-  addUnsafeLandClass(25)
-  addUnsafeLandClass(26)
-  addUnsafeLandClass(128)
-  addUnsafeLandClass(117)
-  addUnsafeLandClass(121)
-  addUnsafeLandClass(122)
-  addUnsafeLandClass(135)
-  addUnsafeLandClass(136)
-  addUnsafeLandClass(138)
-
-
+  
   addPipeClass(2)
   addPipeClass(16)
   addPipeClass(5)
@@ -331,14 +232,18 @@ function init() {
   addPipeClass(13)
   addPipeClass(27)
 
+  addUnsafeLandClass(unsafeLandArray)
+  addStartStripClass(startStripArray)
+  addRoadClass(roadArray)
+  addMiddleStripClass(middleStripArray)
+  addWaterClass(waterArray)
+  
 
 
 
 
 
-
-
-//on page load open up start game div
+  //on page load open up start game div
 
 
 

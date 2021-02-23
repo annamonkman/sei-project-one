@@ -57,30 +57,39 @@ body {
   background-color: rgb(173, 199, 135);
 }
 
-.grid div.unsafe {
-  background-color: rgb(231, 123, 123);
-}
-
 #rat {
   background-image: url('../images/rat.png');
   background-repeat: no-repeat;
   background-size: contain;
 }
 
+.grid div.start-strip {
+  background-color: rgb(77, 206, 77);
+}
 .grid div.road {
   background-color: grey;
+}
+.grid div.middle-strip {
+  background-color: rgb(138, 197, 61);
+}
+.grid div.water {
+  background-color: lightskyblue;
 }
 .grid div.pipe {
   background-color: lightgray;
 }
+.grid div.unsafe {
+  background-color: rgb(231, 123, 123);
+}
 
-.popup {
+.popup-start, .popup-lose, .popup-win{
   position:absolute;
   width: 40%;
   height: 40%;
   background: white;
   display: none;
 }
-.popup-hidden {
 
+.popup-start-hidden, .popup-lose-hidden, .popup-win-hidden {
+  display: none;
 }
