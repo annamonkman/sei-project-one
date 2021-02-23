@@ -265,6 +265,27 @@ function init() {
   addUnsafeLandClass(95)
   addUnsafeLandClass(96)
   addUnsafeLandClass(97)
+  addUnsafeLandClass(0)
+  addUnsafeLandClass(1)
+  addUnsafeLandClass(14)
+  addUnsafeLandClass(15)
+  addUnsafeLandClass(97)
+  addUnsafeLandClass(3)
+  addUnsafeLandClass(17)
+  addUnsafeLandClass(4)
+  addUnsafeLandClass(18)
+  addUnsafeLandClass(6)
+  addUnsafeLandClass(20)
+  addUnsafeLandClass(8)
+  addUnsafeLandClass(9)
+  addUnsafeLandClass(22)
+  addUnsafeLandClass(23)
+  addUnsafeLandClass(11)
+  addUnsafeLandClass(12)
+  addUnsafeLandClass(25)
+  addUnsafeLandClass(26)
+
+
 
 
 
