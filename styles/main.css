@@ -67,10 +67,20 @@ body {
   background-size: contain;
 }
 
+.grid div.road {
+  background-color: grey;
+}
+.grid div.pipe {
+  background-color: lightgray;
+}
+
 .popup {
   position:absolute;
   width: 40%;
   height: 40%;
   background: white;
   display: none;
+}
+.popup-hidden {
+
 }

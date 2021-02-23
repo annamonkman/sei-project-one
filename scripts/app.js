@@ -16,6 +16,11 @@ function init() {
 
   let ratTimer
 
+  const roadClass = 'road'
+  const pipeClass = 'pipe'
+
+  const roadArray = [112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 140, 141, 142, 143, 144, 145, 146, 147, 148, 149, 150, 151, 152, 153, 154, 155, 156, 157, 158, 159, 160, 161, 162, 163, 164, 165, 166, 167]
+
   // const safeLandClass = 'safe'
   // const safeLand = [210, 211, 212]
   // console.log('SAFESTARTLAND', safeLand)
@@ -110,9 +115,12 @@ function init() {
 
       removeUnsafeLandClass(ratCurrentPosition)
       if (ratCurrentPosition <= 167 && ratCurrentPosition >= 154 + 1) {
+        console.log('rat moving')
         ratCurrentPosition--
       } else {
-        clearInterval(ratTimer)
+        console.log('rat stopped moving')
+        clearInterval(ratTimer) // comment out!!!
+        ratCurrentPosition += 13
       }
       console.log('RAT UPDATED CURRENT>>', ratCurrentPosition)
     
@@ -163,10 +171,27 @@ function init() {
   // * add holes
 
   // * add pipes
+  function addPipeClass(position) {
+    cells[position].classList.add(pipeClass)
+  }
 
   // * add land strip
 
   // * add road
+  function addRoadClass(position) {
+    cells.forEach(cell => {
+      cell[position].classList.add(roadClass)
+    })
+  }
+  addRoadClass(Number(roadArray))
+  console.log('ROAD ARRAY', roadArray)
+
+  // for (let i = 112; i <= 167; i++) {
+  //   // cells[i].classList.add(roadClass)
+  //   addRoadClass(i)
+  // }
+
+
 
   // * add water
   
@@ -284,11 +309,25 @@ function init() {
   addUnsafeLandClass(12)
   addUnsafeLandClass(25)
   addUnsafeLandClass(26)
+  addUnsafeLandClass(128)
+  addUnsafeLandClass(117)
+  addUnsafeLandClass(121)
+  addUnsafeLandClass(122)
+  addUnsafeLandClass(135)
+  addUnsafeLandClass(136)
+  addUnsafeLandClass(138)
 
 
-
-
-
+  addPipeClass(2)
+  addPipeClass(16)
+  addPipeClass(5)
+  addPipeClass(19)
+  addPipeClass(7)
+  addPipeClass(21)
+  addPipeClass(10)
+  addPipeClass(24)
+  addPipeClass(13)
+  addPipeClass(27)
 
 
 
