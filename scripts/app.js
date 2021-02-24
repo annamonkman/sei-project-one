@@ -31,9 +31,6 @@ function init() {
   let ratTimerNine
   let ratTimerTen
   let ratTimerEleven
-  let ratTimerTwelve
-  let ratTimerThirteen
-  let ratTimerFourteen
 
   const unsafeLandClass = 'unsafe'
   const unsafeClass = 'unsafe'
@@ -59,16 +56,14 @@ function init() {
   let ratCurrentPosition2 = 165
   let ratCurrentPosition3 = 162
   let ratCurrentPosition4 = 158
-  let ratCurrentPosition5 = 152
-  let ratCurrentPosition6 = 149
-  let ratCurrentPosition7 = 145
-  let ratCurrentPosition8 = 142
-  let ratCurrentPosition9 = 141
-  let ratCurrentPosition10 = 124
-  let ratCurrentPosition11 = 123
-  let ratCurrentPosition12 = 119
-  let ratCurrentPosition13 = 117
-  let ratCurrentPosition14 = 112
+  let ratCurrentPosition5 = 140
+  let ratCurrentPosition6 = 142
+  let ratCurrentPosition7 = 147
+  let ratCurrentPosition8 = 124
+  let ratCurrentPosition9 = 120
+  let ratCurrentPosition10 = 116
+  let ratCurrentPosition11 = 115
+  
 
   function startGame() {
     popupStart.style.display = 'none'
@@ -86,9 +81,6 @@ function init() {
     moveRatNine(ratCurrentPosition9)
     moveRatTen(ratCurrentPosition10)
     moveRatEleven(ratCurrentPosition11)
-    moveRatTwelve(ratCurrentPosition12)
-    moveRatThirteen(ratCurrentPosition13)
-    moveRatFourteen(ratCurrentPosition14)
 
   }
 
@@ -183,7 +175,7 @@ function init() {
       console.log('RAT UPDATED CURRENT>>', ratCurrentPosition1)
     
       addUnsafeClass(ratCurrentPosition1)
-    }, 500)
+    }, 600)
   }
 
   function moveRatTwo() {
@@ -204,7 +196,7 @@ function init() {
       console.log('RAT 2 UPDATED CURRENT>>', ratCurrentPosition2)
     
       addUnsafeClass(ratCurrentPosition2)
-    }, 500)
+    }, 600)
   }
 
   function moveRatThree() {
@@ -224,8 +216,8 @@ function init() {
       }
       console.log('RAT 3 UPDATED CURRENT>>', ratCurrentPosition3)
     
-      addUnsafeClass(ratCurrentPosition2)
-    }, 500)
+      addUnsafeClass(ratCurrentPosition3)
+    }, 600)
   }
 
   function moveRatFour() {
@@ -246,7 +238,7 @@ function init() {
       console.log('RAT 4 UPDATED CURRENT>>', ratCurrentPosition4)
     
       addUnsafeClass(ratCurrentPosition4)
-    }, 500)
+    }, 600)
   }
 
   function moveRatFive() {
@@ -256,7 +248,7 @@ function init() {
     ratTimerFive = setInterval(() => {
 
       removeUnsafeClass(ratCurrentPosition5)
-      if (ratCurrentPosition5 <= 153 && ratCurrentPosition5 >= 140 + 1) {
+      if (ratCurrentPosition5 <= 153 && ratCurrentPosition5 >= 140) {
         console.log('rat 5 moving')
         ratCurrentPosition5++
       } else {
@@ -267,7 +259,7 @@ function init() {
       console.log('RAT 5 UPDATED CURRENT>>', ratCurrentPosition5)
     
       addUnsafeClass(ratCurrentPosition5)
-    }, 500)
+    }, 700)
   }
 
   function moveRatSix() {
@@ -277,7 +269,7 @@ function init() {
     ratTimerSix = setInterval(() => {
 
       removeUnsafeClass(ratCurrentPosition6)
-      if (ratCurrentPosition6 <= 153 && ratCurrentPosition6 >= 140 + 1) {
+      if (ratCurrentPosition6 <= 153 && ratCurrentPosition6 >= 140) {
         console.log('rat 6 moving')
         ratCurrentPosition6++
       } else {
@@ -288,9 +280,31 @@ function init() {
       console.log('RAT 6 UPDATED CURRENT>>', ratCurrentPosition6)
     
       addUnsafeClass(ratCurrentPosition6)
-    }, 500)
+    }, 700)
   }
 
+  function moveRatSeven() {
+    addUnsafeClass(ratCurrentPosition7)
+    console.log('RAT 7 CURRENT POSITION', ratCurrentPosition7)
+    
+    ratTimerSeven = setInterval(() => {
+
+      removeUnsafeClass(ratCurrentPosition7)
+      if (ratCurrentPosition7 <= 153 && ratCurrentPosition7 >= 140) {
+        console.log('rat 7 moving')
+        ratCurrentPosition7++
+      } else {
+        console.log('rat 7 stopped moving')
+        // clearInterval(ratTimerSeven) // comment out!!!
+        ratCurrentPosition7 -= 13
+      }
+      console.log('RAT 7 UPDATED CURRENT>>', ratCurrentPosition7)
+    
+      addUnsafeClass(ratCurrentPosition7)
+    }, 700)
+  }
+
+  
     
     
 
