@@ -10,6 +10,7 @@ function init() {
   const cells = []
 
   const startButton = document.querySelector('.start-button')
+  const restartButton = document.querySelector('.restart-button')
 
   const popupStart = document.querySelector('.popup-start')
   const popupLose = document.querySelector('.popup-lose')
@@ -20,17 +21,17 @@ function init() {
   const gridStartPosition = 0
   let snailCurrentPosition = 175
 
-  let ratTimerOne
-  let ratTimerTwo
-  let ratTimerThree
-  let ratTimerFour
-  let ratTimerFive
-  let ratTimerSix
-  let ratTimerSeven
-  let ratTimerEight
-  let ratTimerNine
-  let ratTimerTen
-  let ratTimerEleven
+  // let ratTimerOne
+  // let ratTimerTwo
+  // let ratTimerThree
+  // let ratTimerFour
+  // let ratTimerFive
+  // let ratTimerSix
+  // let ratTimerSeven
+  // let ratTimerEight
+  // let ratTimerNine
+  // let ratTimerTen
+  // let ratTimerEleven
 
   const unsafeLandClass = 'unsafe'
   const unsafeClass = 'unsafe'
@@ -62,7 +63,6 @@ function init() {
   let ratCurrentPosition8 = 124
   let ratCurrentPosition9 = 120
   let ratCurrentPosition10 = 116
-  let ratCurrentPosition11 = 115
   
 
   function startGame() {
@@ -80,7 +80,8 @@ function init() {
     moveRatEight(ratCurrentPosition8)
     moveRatNine(ratCurrentPosition9)
     moveRatTen(ratCurrentPosition10)
-    moveRatEleven(ratCurrentPosition11)
+
+    snailCurrentPosition = 175
 
   }
 
@@ -108,7 +109,7 @@ function init() {
   // * Move Snail
   function handleKeyUp(event) {
     const key = event.keyCode
-    if (popupStart.style.display !== 'none' && popupLose.style.display !== 'none') {
+    if (popupStart.style.display !== 'none' || popupLose.style.display !== 'none' || popupWin.style.display !== 'none' || cells[snailCurrentPosition].classList.contains(unsafeLandClass) === true ) {
       return
     }
 
@@ -135,9 +136,10 @@ function init() {
   // if snailclass current position is same as class remove snail. 
   function snailDie() {
     console.log('snail current pos >>', snailCurrentPosition)
-    if (cells[snailCurrentPosition].classList.contains(unsafeLandClass) === true || cells[snailCurrentPosition].classList.contains(unsafeClass))/* === true || cells[snailCurrentPosition].classList.contains(ratClass) === true*/{
+    if (cells[snailCurrentPosition].classList.contains(unsafeLandClass) === true) {
       setTimeout(() => {
         popupLose.style.display = 'block'
+        removeSnail(snailCurrentPosition)
       }, 1000)
     } else {
       console.log('SNAIL IS SAFE')
@@ -152,7 +154,7 @@ function init() {
     if (cells[snailCurrentPosition].classList.contains(pipeClass) === true)  {
       setTimeout(() => {
         popupWin.style.display = 'block'
-      }, 1000)
+      }, 800)
     }
   }
   // * animate rats land
@@ -304,6 +306,68 @@ function init() {
     }, 700)
   }
 
+  function moveRatEight() {
+    addUnsafeClass(ratCurrentPosition8)
+    console.log('RAT CURRENT POSITION', ratCurrentPosition8)
+    
+    ratTimerEight = setInterval(() => {
+
+      removeUnsafeClass(ratCurrentPosition8)
+      if (ratCurrentPosition8 <= 125 && ratCurrentPosition8 >= 112 + 1) {
+        console.log('rat moving')
+        ratCurrentPosition8--
+      } else {
+        console.log('rat stopped moving')
+        // clearInterval(ratTimerEight) // comment out!!!
+        ratCurrentPosition8 += 13
+      }
+      console.log('RAT UPDATED CURRENT>>', ratCurrentPosition8)
+    
+      addUnsafeClass(ratCurrentPosition8)
+    }, 500)
+  }
+
+  function moveRatNine() {
+    addUnsafeClass(ratCurrentPosition9)
+    console.log('RAT CURRENT POSITION', ratCurrentPosition9)
+    
+    ratTimerNine = setInterval(() => {
+
+      removeUnsafeClass(ratCurrentPosition9)
+      if (ratCurrentPosition9 <= 125 && ratCurrentPosition9 >= 112 + 1) {
+        console.log('rat moving')
+        ratCurrentPosition9--
+      } else {
+        console.log('rat stopped moving')
+        // clearInterval(ratTimerNine) // comment out!!!
+        ratCurrentPosition9 += 13
+      }
+      console.log('RAT UPDATED CURRENT>>', ratCurrentPosition9)
+    
+      addUnsafeClass(ratCurrentPosition9)
+    }, 500)
+  }
+
+  function moveRatTen() {
+    addUnsafeClass(ratCurrentPosition9)
+    console.log('RAT CURRENT POSITION', ratCurrentPosition10)
+    
+    ratTimerTen = setInterval(() => {
+
+      removeUnsafeClass(ratCurrentPosition10)
+      if (ratCurrentPosition10 <= 125 && ratCurrentPosition10 >= 112 + 1) {
+        console.log('rat moving')
+        ratCurrentPosition10--
+      } else {
+        console.log('rat stopped moving')
+        // clearInterval(ratTimerTen) // comment out!!!
+        ratCurrentPosition10 += 13
+      }
+      console.log('RAT UPDATED CURRENT>>', ratCurrentPosition10)
+    
+      addUnsafeClass(ratCurrentPosition10)
+    }, 500)
+  }
   
     
     
@@ -406,6 +470,8 @@ function init() {
   // * Event Listeners, calling functions
 
   startButton.addEventListener('click', startGame)
+
+  restartButton.addEventListener('click', startGame)
 
   document.addEventListener('keyup', handleKeyUp)
   createGrid(gridStartPosition)
