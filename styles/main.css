@@ -78,10 +78,15 @@ body {
 .grid div.pipe {
   background-color: lightgray;
 }
-.grid div.unsafe {
+.grid div.hole {
+  background-color: black;
+}
+.grid div.fire {
+  background-color: rgb(250, 107, 54);
+}
+.grid div.unsafe { /* move up when unsafe land sorted */
   background-color: rgb(231, 123, 123);
 }
-
 .popup-start, .popup-lose, .popup-win{
   position:absolute;
   width: 40%;

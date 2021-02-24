@@ -23,8 +23,10 @@ function init() {
   const pipeClass = 'pipe'
   const startStripClass = 'start-strip'
   const middleStripClass = 'middle-strip'
+  const holeClass = 'hole'
+  const fireClass = 'fire'
 
-  const unsafeLandArray = [0, 1, 3, 4, 6, 8, 9, 11, 12, 14, 15, 17, 18, 20, 22, 23, 25, 26, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97]
+  const unsafeLandArray = [0, 1, 3, 4, 6, 8, 9, 11, 12, 14, 15, 17, 18, 20, 22, 23, 25, 26, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 127, 131, 137]
   const roadArray = [112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 140, 141, 142, 143, 144, 145, 146, 147, 148, 149, 150, 151, 152, 153, 154, 155, 156, 157, 158, 159, 160, 161, 162, 163, 164, 165, 166, 167]
   const waterArray = [0, 1, 3, 4, 6, 8, 9, 11, 12, 14, 15, 17, 18, 20, 22, 23, 25, 26, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97]
   const startStripArray = [168, 169, 170, 171, 172, 173, 174, 175, 176, 177, 178, 179, 180, 181]
@@ -37,6 +39,7 @@ function init() {
   // const ratClass = 'unsafe'
   const ratStartPosition = 167
   let ratCurrentPosition = 167
+  let ratCurrentPosition2 = 165
 
   // * Make a grid
   function createGrid() {
@@ -97,7 +100,7 @@ function init() {
 
   // * animate unsafe land
 
-  function moveRat() {
+  function moveRatOne() {
     addUnsafeClass(ratCurrentPosition)
     console.log('RAT CURRENT POSITION', ratCurrentPosition)
     
@@ -109,21 +112,45 @@ function init() {
         ratCurrentPosition--
       } else {
         console.log('rat stopped moving')
-        clearInterval(ratTimer) // comment out!!!
+        // clearInterval(ratTimer) // comment out!!!
         ratCurrentPosition += 13
       }
       console.log('RAT UPDATED CURRENT>>', ratCurrentPosition)
     
       addUnsafeClass(ratCurrentPosition)
-
-    }, 800)
-
+    }, 500)
   }
+
+  function moveRatTwo() {
+    addUnsafeClass(ratCurrentPosition2)
+    console.log('RAT 2 CURRENT POSITION', ratCurrentPosition2)
+    
+    ratTimer = setInterval(() => {
+
+      removeUnsafeClass(ratCurrentPosition2)
+      if (ratCurrentPosition2 <= 167 && ratCurrentPosition2 >= 154 + 1) {
+        console.log('rat 2 moving')
+        ratCurrentPosition2--
+      } else {
+        console.log('rat 2 stopped moving')
+        // clearInterval(ratTimer) // comment out!!!
+        ratCurrentPosition2 += 13
+      }
+      console.log('RAT 2 UPDATED CURRENT>>', ratCurrentPosition2)
+    
+      addUnsafeClass(ratCurrentPosition2)
+    }, 500)
+  }
+
+    // setTimeout(() => {
+    //   moveRatOne(ratCurrentPosition)
+    // }, 1000)
+
     
     
 
 
-  // * aniamte rat smoothly test
+  // * animate rat smoothly test
 
   // const rat = document.getElementById('#rat')
   // let start = Date.now()
@@ -157,8 +184,14 @@ function init() {
   // * timers for logs
 
   // * add fire
+  function addFireClass(position) {
+    cells[position].classList.add(fireClass)
+  }
 
   // * add holes
+  function addHoleClass(position) {
+    cells[position].classList.add(holeClass)
+  }
 
   // * add pipes
   function addPipeClass(position) {
@@ -216,11 +249,14 @@ function init() {
   document.addEventListener('keyup', handleKeyUp)
   createGrid(gridStartPosition)
 
-  moveRat(ratCurrentPosition)
+  moveRatOne(ratCurrentPosition)
+  moveRatTwo(ratCurrentPosition2)
 
   // addSafeLandClass(181)
 
-  
+  addFireClass(137)
+  addHoleClass(127)
+  addHoleClass(131)
   addPipeClass(2)
   addPipeClass(16)
   addPipeClass(5)
