@@ -16,13 +16,11 @@ body {
   flex-direction: column;
   border: 1px solid red;
 }
-.page-decoration-div {
-  display: flex;
-  flex-direction: row;
+/* .page-decoration-div {
   border: 1px solid green;
-  width: 400px;
-  height: 200px;
-}
+  width: 100px;
+  height: 50px;
+} */
 
 .grid {
   display: flex;
@@ -43,7 +41,7 @@ body {
 }
 
 .grid div.snail {
-  background-image: url('../images/snail.jpg');
+  background-image: url('../images/snailsmall.PNG');
   background-repeat: no-repeat;
   background-size: contain;
   cursor: pointer;
@@ -93,9 +91,10 @@ body {
 
 .popup-start, .popup-lose, .popup-win{
   position:absolute;
-  width: 800px;
-  height: 500px;
+  width: 900px;
+  height: 700px;
   background: transparent;
+  background-image: url('../images/snailbigbubble.PNG');
   border: 1px solid red;
   /* display: none; */
 }
