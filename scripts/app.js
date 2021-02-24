@@ -82,6 +82,7 @@ function init() {
     moveRatTen(ratCurrentPosition10)
 
     snailCurrentPosition = 175
+    addSnail(snailCurrentPosition)
 
   }
 

@@ -5,6 +5,7 @@
 body {
   height: 100vh;
   margin: 0;
+  background-color: #C3C4C8;
 }
 
 .page-wrapper {
@@ -15,17 +16,12 @@ body {
   flex-direction: column;
   border: 1px solid red;
 }
-.page-decoration-div-container {
+.page-decoration-div {
   display: flex;
   flex-direction: row;
   border: 1px solid green;
-  width: 600px;
-}
-.page-decoration-wrapper {
-  padding: 50px 100px;
-  border: 1px solid blue;
-  align-items: space-between;
-  margin: 0 auto;
+  width: 400px;
+  height: 200px;
 }
 
 .grid {
@@ -40,7 +36,7 @@ body {
 }
 
 .grid div{
-  border: 1px solid lightgray;
+  /* border: 1px solid lightgray; */
   flex-grow: 1;
   height: calc(100% / 13);
   width: calc(100% / 14);
@@ -58,7 +54,7 @@ body {
   background-color: rgb(77, 206, 77);
 }
 .grid div.road {
-  background-color: grey;
+  background-color: #96897B;
 }
 .grid div.rat {
   background-image: url('../images/rat.png');
@@ -68,18 +64,11 @@ body {
 .grid div.middle-strip {
   background-color: rgb(138, 197, 61);
 }
-.grid div.water {
-  background-color: lightskyblue;
-}
+
 .grid div.pipe {
   background-color: lightgray;
 }
-.grid div.hole {
-  background-color: black;
-}
-.grid div.fire {
-  background-color: rgb(250, 107, 54);
-}
+
 .grid div.crisp-packet {
   background-color:rgb(247, 216, 44)
 }
@@ -89,17 +78,25 @@ body {
 .grid div.unsafe { /* move up when unsafe land sorted */
   background-color: rgb(231, 123, 123);
 }
-
-
+.grid div.water {
+  background-color: #242533;
+}
+.grid div.hole {
+  background-color: black;
+}
+.grid div.fire {
+  background-color: rgb(250, 107, 54);
+}
 /* .popup-start-hidden, .popup-lose-hidden, .popup-win-hidden {
   display: none;
 } */
 
 .popup-start, .popup-lose, .popup-win{
   position:absolute;
-  width: 40%;
-  height: 40%;
-  background: white;
+  width: 800px;
+  height: 500px;
+  background: transparent;
+  border: 1px solid red;
   /* display: none; */
 }
 
