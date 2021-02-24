@@ -9,12 +9,26 @@ function init() {
   const cellCount = width * height
   const cells = []
 
+  const startButton = document.querySelector('.start-button')
+
+  const popupStart = document.querySelector('.popup-start')
+  const popupLose = document.querySelector('.popup-lose')
+  const popupWin = document.querySelector('.popup-win')
+
+  // function hidePopup(event) {
+  //   if (// if start button is clicked, hide start popup)
+  //   popupStart.classList.add('popup-start-hidden')
+  // }
+
   const snailClass = 'snail'
   const snailStartPosition = 175
   const gridStartPosition = 0
   let snailCurrentPosition = 175
 
-  let ratTimer
+  let ratTimerOne
+  let ratTimerTwo
+  let ratTimerThree
+  let ratTimerFour
 
   const unsafeLandClass = 'unsafe'
   const unsafeClass = 'unsafe'
@@ -42,6 +56,10 @@ function init() {
   let ratCurrentPosition2 = 165
   let ratCurrentPosition3 = 162
   let ratCurrentPosition4 = 158
+
+  function startGame() {
+
+  }
 
   // * Make a grid
   function createGrid() {
@@ -84,6 +102,7 @@ function init() {
     
     addSnail(snailCurrentPosition)
     snailDie()
+    snailWin()
   }
 
   // * check if snail safe
@@ -93,6 +112,7 @@ function init() {
     if (cells[snailCurrentPosition].classList.contains(unsafeLandClass) === true || cells[snailCurrentPosition].classList.contains(unsafeClass))  {
       setTimeout(() => {
         window.alert('snail died')
+        popupLose.classList.remove('popup-lose-hidden').classList.add('popup-lose')
       }, 1000)
     } else {
       console.log('SNAIL IS SAFE')
@@ -100,13 +120,24 @@ function init() {
   }
   // console.log('snailDie()>>', snailDie())
 
+  // * snail won
+  // if snail current position is same as pipe class
+  function snailWin() {
+    console.log('snail current pos >>', snailCurrentPosition)
+    if (cells[snailCurrentPosition].classList.contains(pipeClass) === true)  {
+      setTimeout(() => {
+        window.alert('snail won')
+        popupLose.classList.remove('popup-won-hidden').classList.add('popup-won')
+      }, 1000)
+  }
+
   // * animate unsafe land
 
   function moveRatOne() {
     addUnsafeClass(ratCurrentPosition)
     console.log('RAT CURRENT POSITION', ratCurrentPosition)
     
-    ratTimer = setInterval(() => {
+    ratTimerOne = setInterval(() => {
 
       removeUnsafeClass(ratCurrentPosition)
       if (ratCurrentPosition <= 167 && ratCurrentPosition >= 154 + 1) {
@@ -114,7 +145,7 @@ function init() {
         ratCurrentPosition--
       } else {
         console.log('rat stopped moving')
-        // clearInterval(ratTimer) // comment out!!!
+        clearInterval(ratTimerOne) // comment out!!!
         ratCurrentPosition += 13
       }
       console.log('RAT UPDATED CURRENT>>', ratCurrentPosition)
@@ -127,7 +158,7 @@ function init() {
     addUnsafeClass(ratCurrentPosition2)
     console.log('RAT 2 CURRENT POSITION', ratCurrentPosition2)
     
-    ratTimer = setInterval(() => {
+    ratTimerTwo = setInterval(() => {
 
       removeUnsafeClass(ratCurrentPosition2)
       if (ratCurrentPosition2 <= 167 && ratCurrentPosition2 >= 154 + 1) {
@@ -135,7 +166,7 @@ function init() {
         ratCurrentPosition2--
       } else {
         console.log('rat 2 stopped moving')
-        // clearInterval(ratTimer) // comment out!!!
+        clearInterval(ratTimerTwo) // comment out!!!
         ratCurrentPosition2 += 13
       }
       console.log('RAT 2 UPDATED CURRENT>>', ratCurrentPosition2)
@@ -148,7 +179,7 @@ function init() {
     addUnsafeClass(ratCurrentPosition3)
     console.log('RAT 3 CURRENT POSITION', ratCurrentPosition3)
     
-    ratTimer = setInterval(() => {
+    ratTimerThree = setInterval(() => {
 
       removeUnsafeClass(ratCurrentPosition3)
       if (ratCurrentPosition3 <= 167 && ratCurrentPosition3 >= 154 + 1) {
@@ -156,7 +187,7 @@ function init() {
         ratCurrentPosition3--
       } else {
         console.log('rat 3 stopped moving')
-        // clearInterval(ratTimer) // comment out!!!
+        clearInterval(ratTimerThree) // comment out!!!
         ratCurrentPosition3 += 13
       }
       console.log('RAT 3 UPDATED CURRENT>>', ratCurrentPosition3)
@@ -169,7 +200,7 @@ function init() {
     addUnsafeClass(ratCurrentPosition4)
     console.log('RAT 4 CURRENT POSITION', ratCurrentPosition4)
     
-    ratTimer = setInterval(() => {
+    ratTimerFour = setInterval(() => {
 
       removeUnsafeClass(ratCurrentPosition4)
       if (ratCurrentPosition4 <= 167 && ratCurrentPosition4 >= 154 + 1) {
@@ -177,7 +208,7 @@ function init() {
         ratCurrentPosition4--
       } else {
         console.log('rat 4 stopped moving')
-        // clearInterval(ratTimer) // comment out!!!
+        clearInterval(ratTimerFour) // comment out!!!
         ratCurrentPosition4 += 13
       }
       console.log('RAT 4 UPDATED CURRENT>>', ratCurrentPosition4)
@@ -289,6 +320,8 @@ function init() {
   
 
   // * Event Listeners, calling functions
+
+  startButton.addEventListener('click', startGame)
 
   document.addEventListener('keyup', handleKeyUp)
   createGrid(gridStartPosition)
