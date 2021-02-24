@@ -53,21 +53,17 @@ body {
   cursor: pointer;
 }
 
-.grid div.safe {
-  background-color: rgb(173, 199, 135);
-}
-
-#rat {
-  background-image: url('../images/rat.png');
-  background-repeat: no-repeat;
-  background-size: contain;
-}
 
 .grid div.start-strip {
   background-color: rgb(77, 206, 77);
 }
 .grid div.road {
   background-color: grey;
+}
+.grid div.rat {
+  background-image: url('../images/rat.png');
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 .grid div.middle-strip {
   background-color: rgb(138, 197, 61);
@@ -84,17 +80,25 @@ body {
 .grid div.fire {
   background-color: rgb(250, 107, 54);
 }
+.grid div.crisp-packet {
+  background-color:rgb(247, 216, 44)
+}
+.grid div.twig {
+  background-color: silver;
+}
 .grid div.unsafe { /* move up when unsafe land sorted */
   background-color: rgb(231, 123, 123);
 }
+
+
+/* .popup-start-hidden, .popup-lose-hidden, .popup-win-hidden {
+  display: none;
+} */
+
 .popup-start, .popup-lose, .popup-win{
   position:absolute;
   width: 40%;
   height: 40%;
   background: white;
-  display: none;
-}
-
-.popup-start-hidden, .popup-lose-hidden, .popup-win-hidden {
-  display: none;
+  /* display: none; */
 }

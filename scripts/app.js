@@ -15,11 +15,6 @@ function init() {
   const popupLose = document.querySelector('.popup-lose')
   const popupWin = document.querySelector('.popup-win')
 
-  // function hidePopup(event) {
-  //   if (// if start button is clicked, hide start popup)
-  //   popupStart.classList.add('popup-start-hidden')
-  // }
-
   const snailClass = 'snail'
   const snailStartPosition = 175
   const gridStartPosition = 0
@@ -32,6 +27,7 @@ function init() {
 
   const unsafeLandClass = 'unsafe'
   const unsafeClass = 'unsafe'
+  const ratClass = 'rat'
   const roadClass = 'road'
   const waterClass = 'water'
   const pipeClass = 'pipe'
@@ -39,18 +35,15 @@ function init() {
   const middleStripClass = 'middle-strip'
   const holeClass = 'hole'
   const fireClass = 'fire'
+  const crispsClass = 'crisp-packet'
+  const twigClass = 'twig'
 
   const unsafeLandArray = [0, 1, 3, 4, 6, 8, 9, 11, 12, 14, 15, 17, 18, 20, 22, 23, 25, 26, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 127, 131, 137]
   const roadArray = [112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 140, 141, 142, 143, 144, 145, 146, 147, 148, 149, 150, 151, 152, 153, 154, 155, 156, 157, 158, 159, 160, 161, 162, 163, 164, 165, 166, 167]
   const waterArray = [0, 1, 3, 4, 6, 8, 9, 11, 12, 14, 15, 17, 18, 20, 22, 23, 25, 26, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97]
   const startStripArray = [168, 169, 170, 171, 172, 173, 174, 175, 176, 177, 178, 179, 180, 181]
   const middleStripArray = [98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111]
-  // const safeLandClass = 'safe'
-  // const safeLand = [210, 211, 212]
-  // console.log('SAFESTARTLAND', safeLand)
 
-
-  // const ratClass = 'unsafe'
   const ratStartPosition = 167
   let ratCurrentPosition = 167
   let ratCurrentPosition2 = 165
@@ -58,8 +51,15 @@ function init() {
   let ratCurrentPosition4 = 158
 
   function startGame() {
+    popupStart.style.display = 'none'
+    popupWin.style.display = 'none'
+    popupLose.style.display = 'none'
 
+    // if (/*start game button clicked*/) {
+    //   popupStart.style.display = 'none'
+    // }
   }
+  startGame()
 
   // * Make a grid
   function createGrid() {
@@ -105,14 +105,13 @@ function init() {
     snailWin()
   }
 
-  // * check if snail safe
+  // * Snail Die
   // if snailclass current position is same as class remove snail. 
   function snailDie() {
     console.log('snail current pos >>', snailCurrentPosition)
-    if (cells[snailCurrentPosition].classList.contains(unsafeLandClass) === true || cells[snailCurrentPosition].classList.contains(unsafeClass))  {
+    if (cells[snailCurrentPosition].classList.contains(unsafeLandClass) === true || cells[snailCurrentPosition].classList.contains(unsafeClass)) === true || cells[snailCurrentPosition].classList.contains(ratClass) === true {
       setTimeout(() => {
-        window.alert('snail died')
-        popupLose.classList.remove('popup-lose-hidden').classList.add('popup-lose')
+        popupLose.style.display = 'block'
       }, 1000)
     } else {
       console.log('SNAIL IS SAFE')
@@ -126,11 +125,10 @@ function init() {
     console.log('snail current pos >>', snailCurrentPosition)
     if (cells[snailCurrentPosition].classList.contains(pipeClass) === true)  {
       setTimeout(() => {
-        window.alert('snail won')
-        popupLose.classList.remove('popup-won-hidden').classList.add('popup-won')
+        popupWin.style.display = 'block'
       }, 1000)
+    }
   }
-
   // * animate unsafe land
 
   function moveRatOne() {
