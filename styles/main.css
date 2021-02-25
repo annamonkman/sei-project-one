@@ -43,18 +43,23 @@ body {
 }
 
 .grid div.start-strip {
-  background-color: rgb(77, 206, 77);
+  background-image: url('../images/start-strip1.png');
+  background-color: #cec8b7;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
 .grid div.road {
-  background-color: #b3a596;
+  background-color: #cec8b7;
 }
 .grid div.rat {
   background-image: url('../images/rat1.png');
   background-repeat: no-repeat;
   background-size: contain;
+  background-color: #cec8b7;
 }
 .grid div.middle-strip {
-  background-image: url('../images/middle-strip.png');
+  background-image: url('../images/middle-strip1.png');
   background-color: black;
   background-repeat: no-repeat;
   background-size: cover;
@@ -92,13 +97,14 @@ body {
   background-image: url('../images/hole.png');
   background-repeat: no-repeat;
   background-size: contain;
-  background-color: #b3a596;
+  background-color: #cec8b7;
 }
 .grid div.fire {
   /* background-color: rgb(250, 107, 54); */
   background-image: url('../images/fire.gif');
   background-repeat: no-repeat;
   background-size: 120%;
+  background-color: #cec8b7;
 }
 /* .popup-start-hidden, .popup-lose-hidden, .popup-win-hidden {
   display: none;
