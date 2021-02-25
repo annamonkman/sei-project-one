@@ -2,21 +2,18 @@
   box-sizing: border-box;
 }
 
-/* body, html {
-  height: 100%;
-} */
 body {
   height: 100vh;
   margin: 0;
 }
 .page-wrapper {
-  height: 100vh;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  border: 1px solid red;
-  background-image: url('../images/bg1.jpeg');
+  /* border: 1px solid red; */
+  background-image: url('../images/bg3.jpg');
   /* height: 100%; */
   background-position: center;
   background-repeat: no-repeat;
@@ -40,7 +37,6 @@ body {
 }
 
 .grid div{
-
   flex-grow: 1;
   height: calc(100% / 13);
   width: calc(100% / 14);
@@ -53,7 +49,7 @@ body {
   background-color: #b3a596;
 }
 .grid div.rat {
-  background-image: url('../images/rat.png');
+  background-image: url('../images/rat1.png');
   background-repeat: no-repeat;
   background-size: contain;
 }
@@ -61,7 +57,7 @@ body {
   background-image: url('../images/middle-strip.png');
   background-color: black;
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: cover;
   background-position: center;
 }
 
@@ -99,7 +95,10 @@ body {
   background-color: #b3a596;
 }
 .grid div.fire {
-  background-color: rgb(250, 107, 54);
+  /* background-color: rgb(250, 107, 54); */
+  background-image: url('../images/fire.gif');
+  background-repeat: no-repeat;
+  background-size: 120%;
 }
 /* .popup-start-hidden, .popup-lose-hidden, .popup-win-hidden {
   display: none;
@@ -116,11 +115,25 @@ body {
   width: 900px;
   height: 700px;
   background: transparent;
-  background-image: url('../images/snailbigbubble.PNG');
-  border: 1px solid red;
+  background-image: url('../images/snailbigbubble2.PNG');
+  /* border: 1px solid red; */
   /* display: none; */
 }
 
 .popup-lose, .popup-win {
   display: none;
+}
+
+.speech-bubble {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 200px;
+  margin-left: 230px;
+}
+.text {
+
+}
+.start-button, .restart-button {
+  margin-top: 30px;
 }
