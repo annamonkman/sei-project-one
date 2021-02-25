@@ -39,6 +39,7 @@ function init() {
   const roadClass = 'road'
   const waterClass = 'water'
   const pipeClass = 'pipe'
+  const pipeBodyClass = 'pipe-body'
   const startStripClass = 'start-strip'
   const middleStripClass = 'middle-strip'
   const holeClass = 'hole'
@@ -90,7 +91,7 @@ function init() {
   function createGrid() {
     for (let i = 0; i < cellCount; i++) {
       const cell = document.createElement('div')
-      cell.textContent = i
+      // cell.textContent = i
       grid.appendChild(cell)
       cells.push(cell)
     }
@@ -162,11 +163,13 @@ function init() {
 
   function moveRatOne() {
     addUnsafeClass(ratCurrentPosition1)
+    addRatClass(ratCurrentPosition1)
     console.log('RAT CURRENT POSITION', ratCurrentPosition1)
     
     ratTimerOne = setInterval(() => {
 
       removeUnsafeClass(ratCurrentPosition1)
+      removeRatClass(ratCurrentPosition1)
       if (ratCurrentPosition1 <= 167 && ratCurrentPosition1 >= 154 + 1) {
         console.log('rat moving')
         ratCurrentPosition1--
@@ -178,6 +181,7 @@ function init() {
       console.log('RAT UPDATED CURRENT>>', ratCurrentPosition1)
     
       addUnsafeClass(ratCurrentPosition1)
+      addRatClass(ratCurrentPosition1)
     }, 600)
   }
 
@@ -421,6 +425,10 @@ function init() {
   function addPipeClass(position) {
     cells[position].classList.add(pipeClass)
   }
+  // * add pipe body
+  function addPipeBodyClass(position) {
+    cells[position].classList.add(pipeBodyClass)
+  }
 
   // * add start strip
   function addStartStripClass(positions) {
@@ -466,6 +474,15 @@ function init() {
   function removeUnsafeClass(position) {
     cells[position].classList.remove(unsafeClass)
   }
+
+  // * Add rat Class to cells
+  function addRatClass(position) {
+    cells[position].classList.add(ratClass)
+  }
+  // * Remove Rat Class from cells
+  function removeRatClass(position) {
+    cells[position].classList.remove(ratClass)
+  }
   
 
   // * Event Listeners, calling functions
@@ -481,18 +498,20 @@ function init() {
   // addSafeLandClass(181)
 
   addFireClass(137)
+
   addHoleClass(127)
   addHoleClass(131)
-  addPipeClass(2)
+
   addPipeClass(16)
-  addPipeClass(5)
   addPipeClass(19)
-  addPipeClass(7)
   addPipeClass(21)
-  addPipeClass(10)
   addPipeClass(24)
-  addPipeClass(13)
   addPipeClass(27)
+  addPipeBodyClass(2)
+  addPipeBodyClass(5)
+  addPipeBodyClass(7)
+  addPipeBodyClass(10)
+  addPipeBodyClass(13)
 
   addUnsafeLandClass(unsafeLandArray)
   addStartStripClass(startStripArray)

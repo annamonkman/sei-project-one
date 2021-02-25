@@ -2,12 +2,13 @@
   box-sizing: border-box;
 }
 
+/* body, html {
+  height: 100%;
+} */
 body {
   height: 100vh;
   margin: 0;
-  background-color: #C3C4C8;
 }
-
 .page-wrapper {
   height: 100vh;
   display: flex;
@@ -15,6 +16,11 @@ body {
   align-items: center;
   flex-direction: column;
   border: 1px solid red;
+  background-image: url('../images/bg1.jpeg');
+  /* height: 100%; */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 /* .page-decoration-div {
   border: 1px solid green;
@@ -29,30 +35,22 @@ body {
   flex-wrap: wrap;
   height: 100%;
   width: 600px;
-  height: 557.142857px;
-  margin: 30px;
+  height: 557.142858px;
+  margin: 20px;
 }
 
 .grid div{
-  /* border: 1px solid lightgray; */
+
   flex-grow: 1;
   height: calc(100% / 13);
   width: calc(100% / 14);
 }
 
-.grid div.snail {
-  background-image: url('../images/snailsmall.PNG');
-  background-repeat: no-repeat;
-  background-size: contain;
-  cursor: pointer;
-}
-
-
 .grid div.start-strip {
   background-color: rgb(77, 206, 77);
 }
 .grid div.road {
-  background-color: #96897B;
+  background-color: #b3a596;
 }
 .grid div.rat {
   background-image: url('../images/rat.png');
@@ -60,11 +58,26 @@ body {
   background-size: contain;
 }
 .grid div.middle-strip {
-  background-color: rgb(138, 197, 61);
+  background-image: url('../images/middle-strip.png');
+  background-color: black;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
 }
 
 .grid div.pipe {
-  background-color: lightgray;
+  background-color: rgb(44, 44, 49);
+  background-image: url('../images/pipe-end.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+.grid div.pipe-body {
+  background-color: rgb(44, 44, 49);
+  background-image: url('../images/pipe-body.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
 }
 
 .grid div.crisp-packet {
@@ -80,7 +93,10 @@ body {
   background-color: #242533;
 }
 .grid div.hole {
-  background-color: black;
+  background-image: url('../images/hole.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-color: #b3a596;
 }
 .grid div.fire {
   background-color: rgb(250, 107, 54);
@@ -88,6 +104,12 @@ body {
 /* .popup-start-hidden, .popup-lose-hidden, .popup-win-hidden {
   display: none;
 } */
+.grid div.snail {
+  background-image: url('../images/snailsmall.PNG');
+  background-repeat: no-repeat;
+  background-size: contain;
+  cursor: pointer;
+}
 
 .popup-start, .popup-lose, .popup-win{
   position:absolute;
