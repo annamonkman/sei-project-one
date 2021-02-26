@@ -10,7 +10,7 @@ function init() {
   const cells = []
 
   const startButton = document.querySelector('.start-button')
-  const restartButton = document.querySelector('.restart-button')
+  const restartButton = document.querySelectorAll('.restart-button')
 
   const popupStart = document.querySelector('.popup-start')
   const popupLose = document.querySelector('.popup-lose')
@@ -21,17 +21,39 @@ function init() {
   const gridStartPosition = 0
   let snailCurrentPosition = 175
 
-  // let ratTimerOne
-  // let ratTimerTwo
-  // let ratTimerThree
-  // let ratTimerFour
-  // let ratTimerFive
-  // let ratTimerSix
-  // let ratTimerSeven
-  // let ratTimerEight
-  // let ratTimerNine
-  // let ratTimerTen
-  // let ratTimerEleven
+  let ratTimerOne
+  let ratTimerTwo
+  let ratTimerThree
+  let ratTimerFour
+  let ratTimerFive
+  let ratTimerSix
+  let ratTimerSeven
+  let ratTimerEight
+  let ratTimerNine
+  let ratTimerTen
+  let boardTimerOne
+  let boardTimerTwo
+  let boardTimerThree
+  let boardTimerFour
+  let boardTimerFive
+  let boardTimerSix
+  let boardTimerSeven
+  let boardTimerEight
+  let boardTimerNine
+  let boardTimerTen
+  let boardTimerEleven
+  let boardTimerTwelve
+  let boardTimerThirteen
+  let boardTimerFourteen
+  let boardTimerFifteen
+  let crispsTimerOne
+  let crispsTimerTwo
+  let crispsTimerThree
+  let crispsTimerFour
+  let crispsTimerFive
+  let crispsTimerSix
+  let crispsTimerSeven
+  let crispsTimerEight
 
   const unsafeLandClass = 'unsafe'
   const unsafeClass = 'unsafe'
@@ -49,12 +71,14 @@ function init() {
   const twigStartClass = 'twig-start'
   const twigMiddleClass = 'twig-middle'
   const twigEndClass = 'twig-end'
+  const pathClass = 'path'
 
-  const unsafeLandArray = [0, 1, 3, 4, 6, 8, 9, 11, 12, 14, 15, 17, 18, 20, 22, 23, 25, 26, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 127, 131, 137]
+  const unsafeLandArray = [0, 1, 3, 4, 6, 8, 9, 11, 12, 14, 15, 17, 18, 20, 22, 23, 25, 26, /*28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55,*/ 56, 57, 58, 59, 60, 61, 62, 63, 64, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 94, 95, 96, 97, 127, 131, 137]
   const roadArray = [112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 140, 141, 142, 143, 144, 145, 146, 147, 148, 149, 150, 151, 152, 153, 154, 155, 156, 157, 158, 159, 160, 161, 162, 163, 164, 165, 166, 167]
-  const waterArray = [0, 1, 3, 4, 6, 8, 9, 11, 12, 14, 15, 17, 18, 20, 22, 23, 25, 26, /*28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55,*/ 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97]
+  const waterArray = [0, 1, 3, 4, 6, 8, 9, 11, 12, 14, 15, 17, 18, 20, 22, 23, 25, 26, 56, 57, 58, 59, 60, 61, 62, 63, 64, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 94, 95, 96, 97]
   const startStripArray = [168, 169, 170, 171, 172, 173, 174, 175, 176, 177, 178, 179, 180, 181]
   const middleStripArray = [98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111]
+  const pathArray = [28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55,]
 
   // const ratStartPosition = 167
   let ratCurrentPosition1 = 167
@@ -97,10 +121,13 @@ function init() {
 
   
 
-  function startGame() {
+  function startGame(event) {
+    console.log('>>>>>>', event.target)
+
     popupStart.style.display = 'none'
     popupWin.style.display = 'none'
     popupLose.style.display = 'none'
+
 
     moveRatOne(ratCurrentPosition1)
     moveRatTwo(ratCurrentPosition2)
@@ -149,7 +176,7 @@ function init() {
   function createGrid() {
     for (let i = 0; i < cellCount; i++) {
       const cell = document.createElement('div')
-      // cell.textContent = i
+      cell.textContent = i
       grid.appendChild(cell)
       cells.push(cell)
     }
@@ -196,10 +223,11 @@ function init() {
   // if snailclass current position is same as class remove snail. 
   function snailDie() {
     console.log('snail current pos >>', snailCurrentPosition)
-    if (cells[snailCurrentPosition].classList.contains(unsafeLandClass && snailClass) === true) {
+    if (cells[snailCurrentPosition].classList.contains(unsafeLandClass) === true && cells[snailCurrentPosition].classList.contains(snailClass) === true) {
       setTimeout(() => {
         popupLose.style.display = 'block'
         removeSnail(snailCurrentPosition)
+        
       }, 1000)
     } else {
       console.log('SNAIL IS SAFE')
@@ -214,6 +242,7 @@ function init() {
     if (cells[snailCurrentPosition].classList.contains(pipeClass) === true)  {
       setTimeout(() => {
         popupWin.style.display = 'block'
+        removeSnail(snailCurrentPosition)
       }, 800)
     }
   }
@@ -604,7 +633,7 @@ function init() {
     addTwigStartClass(boardCurrentPosition7)
     console.log('Board 7 CURRENT POSITION', boardCurrentPosition7)
     
-    boardTimerOne = setInterval(() => {
+    boardTimerSeven = setInterval(() => {
 
       removeBoardClass(boardCurrentPosition7)
       removeTwigStartClass(boardCurrentPosition7)
@@ -627,7 +656,7 @@ function init() {
     addTwigMiddleClass(boardCurrentPosition8)
     console.log('Board 5 CURRENT POSITION', boardCurrentPosition8)
     
-    boardTimerFive = setInterval(() => {
+    boardTimerEight = setInterval(() => {
 
       removeBoardClass(boardCurrentPosition8)
       removeTwigMiddleClass(boardCurrentPosition8)
@@ -650,7 +679,7 @@ function init() {
     addTwigEndClass(boardCurrentPosition9)
     console.log('Board 9 CURRENT POSITION', boardCurrentPosition9)
     
-    boardTimerSix = setInterval(() => {
+    boardTimerNine = setInterval(() => {
 
       removeBoardClass(boardCurrentPosition9)
       removeTwigEndClass(boardCurrentPosition9)
@@ -673,7 +702,7 @@ function init() {
     addTwigStartClass(boardCurrentPosition10)
     console.log('Board 10 CURRENT POSITION', boardCurrentPosition10)
     
-    boardTimerOne = setInterval(() => {
+    boardTimerTen = setInterval(() => {
 
       removeBoardClass(boardCurrentPosition10)
       removeTwigStartClass(boardCurrentPosition10)
@@ -696,7 +725,7 @@ function init() {
     addTwigMiddleClass(boardCurrentPosition11)
     console.log('Board 11 CURRENT POSITION', boardCurrentPosition11)
     
-    boardTimerTwo = setInterval(() => {
+    boardTimerEleven = setInterval(() => {
 
       removeBoardClass(boardCurrentPosition11)
       removeTwigMiddleClass(boardCurrentPosition11)
@@ -719,7 +748,7 @@ function init() {
     addTwigEndClass(boardCurrentPosition12)
     console.log('Board 12 CURRENT POSITION', boardCurrentPosition12)
     
-    boardTimerSix = setInterval(() => {
+    boardTimerTwelve = setInterval(() => {
 
       removeBoardClass(boardCurrentPosition12)
       removeTwigEndClass(boardCurrentPosition12)
@@ -742,7 +771,7 @@ function init() {
     addTwigStartClass(boardCurrentPosition13)
     console.log('Board 13 CURRENT POSITION', boardCurrentPosition13)
     
-    boardTimerOne = setInterval(() => {
+    boardTimerThirteen = setInterval(() => {
 
       removeBoardClass(boardCurrentPosition13)
       removeTwigStartClass(boardCurrentPosition13)
@@ -765,7 +794,7 @@ function init() {
     addTwigMiddleClass(boardCurrentPosition14)
     console.log('Board 14 CURRENT POSITION', boardCurrentPosition14)
     
-    boardTimerFive = setInterval(() => {
+    boardTimerFourteen = setInterval(() => {
 
       removeBoardClass(boardCurrentPosition14)
       removeTwigMiddleClass(boardCurrentPosition14)
@@ -788,7 +817,7 @@ function init() {
     addTwigEndClass(boardCurrentPosition15)
     console.log('Board 15 CURRENT POSITION', boardCurrentPosition15)
     
-    boardTimerSix = setInterval(() => {
+    boardTimerFifteen = setInterval(() => {
 
       removeBoardClass(boardCurrentPosition15)
       removeTwigEndClass(boardCurrentPosition15)
@@ -813,7 +842,7 @@ function init() {
     addCrispsClass(boardCurrentPosition101)
     console.log('Board 15 CURRENT POSITION', boardCurrentPosition101)
     
-    crispsTimerSix = setInterval(() => {
+    crispsTimerOne = setInterval(() => {
 
       removeCrispsClass(boardCurrentPosition101)
       removeBoardClass(boardCurrentPosition101)
@@ -836,7 +865,7 @@ function init() {
     addCrispsClass(boardCurrentPosition102)
     console.log('Board 15 CURRENT POSITION', boardCurrentPosition102)
     
-    crispsTimerSix = setInterval(() => {
+    crispsTimerTwo = setInterval(() => {
 
       removeCrispsClass(boardCurrentPosition102)
       removeBoardClass(boardCurrentPosition102)
@@ -859,7 +888,7 @@ function init() {
     addCrispsClass(boardCurrentPosition103)
     console.log('Board 15 CURRENT POSITION', boardCurrentPosition103)
     
-    crispsTimerSix = setInterval(() => {
+    crispsTimerThree = setInterval(() => {
 
       removeCrispsClass(boardCurrentPosition103)
       removeBoardClass(boardCurrentPosition103)
@@ -882,7 +911,7 @@ function init() {
     addCrispsClass(boardCurrentPosition104)
     console.log('Board 15 CURRENT POSITION', boardCurrentPosition104)
     
-    crispsTimerSix = setInterval(() => {
+    crispsTimerFour = setInterval(() => {
 
       removeCrispsClass(boardCurrentPosition104)
       removeBoardClass(boardCurrentPosition104)
@@ -905,7 +934,7 @@ function init() {
     addCrispsClass(boardCurrentPosition105)
     console.log('Board 15 CURRENT POSITION', boardCurrentPosition105)
     
-    crispsTimerSix = setInterval(() => {
+    crispsTimerFive = setInterval(() => {
 
       removeCrispsClass(boardCurrentPosition105)
       removeBoardClass(boardCurrentPosition105)
@@ -951,7 +980,7 @@ function init() {
     addCrispsClass(boardCurrentPosition107)
     console.log('Board 15 CURRENT POSITION', boardCurrentPosition107)
     
-    crispsTimerSix = setInterval(() => {
+    crispsTimerSeven = setInterval(() => {
 
       removeCrispsClass(boardCurrentPosition107)
       removeBoardClass(boardCurrentPosition107)
@@ -974,7 +1003,7 @@ function init() {
     addCrispsClass(boardCurrentPosition108)
     console.log('Board 15 CURRENT POSITION', boardCurrentPosition108)
     
-    crispsTimerSix = setInterval(() => {
+    crispsTimerEight = setInterval(() => {
 
       removeCrispsClass(boardCurrentPosition108)
       removeBoardClass(boardCurrentPosition108)
@@ -992,6 +1021,7 @@ function init() {
       addCrispsClass(boardCurrentPosition108)
     }, 800)
   }
+
   // * animate rat smoothly test
 
   // const rat = document.getElementById('#rat')
@@ -1062,6 +1092,11 @@ function init() {
   // * add water
   function addWaterClass(positions) {
     positions.forEach(item => cells[item].classList.add(waterClass))
+  }
+
+  // * add path
+  function addPathClass(positions) {
+    positions.forEach(item => cells[item].classList.add(pathClass))
   }
 
   // * Add safe land class to cells
@@ -1144,8 +1179,9 @@ function init() {
 
   startButton.addEventListener('click', startGame)
 
-  restartButton.addEventListener('click', startGame)
-
+  restartButton.forEach((rbutton)=> {
+    rbutton.addEventListener('click', startGame)
+  })
   document.addEventListener('keyup', handleKeyUp)
   createGrid(gridStartPosition)
 
@@ -1173,6 +1209,7 @@ function init() {
   addRoadClass(roadArray)
   addMiddleStripClass(middleStripArray)
   addWaterClass(waterArray)
+  addPathClass(pathArray)
   
 
 
