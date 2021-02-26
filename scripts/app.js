@@ -52,7 +52,7 @@ function init() {
 
   const unsafeLandArray = [0, 1, 3, 4, 6, 8, 9, 11, 12, 14, 15, 17, 18, 20, 22, 23, 25, 26, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 127, 131, 137]
   const roadArray = [112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 140, 141, 142, 143, 144, 145, 146, 147, 148, 149, 150, 151, 152, 153, 154, 155, 156, 157, 158, 159, 160, 161, 162, 163, 164, 165, 166, 167]
-  const waterArray = [0, 1, 3, 4, 6, 8, 9, 11, 12, 14, 15, 17, 18, 20, 22, 23, 25, 26, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97]
+  const waterArray = [0, 1, 3, 4, 6, 8, 9, 11, 12, 14, 15, 17, 18, 20, 22, 23, 25, 26, /*28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55,*/ 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97]
   const startStripArray = [168, 169, 170, 171, 172, 173, 174, 175, 176, 177, 178, 179, 180, 181]
   const middleStripArray = [98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111]
 
@@ -91,6 +91,8 @@ function init() {
   let boardCurrentPosition104 = 62
   let boardCurrentPosition105 = 63
   let boardCurrentPosition106 = 64
+  let boardCurrentPosition107 = 67
+  let boardCurrentPosition108 = 68
 
 
   
@@ -127,6 +129,8 @@ function init() {
     moveBoardTwo(boardCurrentPosition2)
     moveBoardOne(boardCurrentPosition1)
 
+    moveCrispsEight(boardCurrentPosition108)
+    moveCrispsSeven(boardCurrentPosition107)
     moveCrispsSix(boardCurrentPosition106)
     moveCrispsFive(boardCurrentPosition105)
     moveCrispsFour(boardCurrentPosition104)
@@ -145,7 +149,7 @@ function init() {
   function createGrid() {
     for (let i = 0; i < cellCount; i++) {
       const cell = document.createElement('div')
-      cell.textContent = i
+      // cell.textContent = i
       grid.appendChild(cell)
       cells.push(cell)
     }
@@ -848,6 +852,144 @@ function init() {
     
       addBoardClass(boardCurrentPosition102)
       addCrispsClass(boardCurrentPosition102)
+    }, 800)
+  }
+  function moveCrispsThree() {
+    addBoardClass(boardCurrentPosition103)
+    addCrispsClass(boardCurrentPosition103)
+    console.log('Board 15 CURRENT POSITION', boardCurrentPosition103)
+    
+    crispsTimerSix = setInterval(() => {
+
+      removeCrispsClass(boardCurrentPosition103)
+      removeBoardClass(boardCurrentPosition103)
+      if (boardCurrentPosition103 <= 69 - 1 && boardCurrentPosition103 >= 56) {
+        console.log('crisps 1 moving')
+        boardCurrentPosition103++
+      } else {
+        console.log('crisps 1 stopped moving')
+        // clearInterval(boardTimerThree) // comment out!!!
+        boardCurrentPosition103 -= 13
+      }
+      console.log('crisps 1 UPDATED CURRENT>>', boardCurrentPosition103)
+    
+      addBoardClass(boardCurrentPosition103)
+      addCrispsClass(boardCurrentPosition103)
+    }, 800)
+  }
+  function moveCrispsFour() {
+    addBoardClass(boardCurrentPosition104)
+    addCrispsClass(boardCurrentPosition104)
+    console.log('Board 15 CURRENT POSITION', boardCurrentPosition104)
+    
+    crispsTimerSix = setInterval(() => {
+
+      removeCrispsClass(boardCurrentPosition104)
+      removeBoardClass(boardCurrentPosition104)
+      if (boardCurrentPosition104 <= 69 - 1 && boardCurrentPosition104 >= 56) {
+        console.log('crisps 1 moving')
+        boardCurrentPosition104++
+      } else {
+        console.log('crisps 1 stopped moving')
+        // clearInterval(boardTimerThree) // comment out!!!
+        boardCurrentPosition104 -= 13
+      }
+      console.log('crisps 1 UPDATED CURRENT>>', boardCurrentPosition104)
+    
+      addBoardClass(boardCurrentPosition104)
+      addCrispsClass(boardCurrentPosition104)
+    }, 800)
+  }
+  function moveCrispsFive() {
+    addBoardClass(boardCurrentPosition105)
+    addCrispsClass(boardCurrentPosition105)
+    console.log('Board 15 CURRENT POSITION', boardCurrentPosition105)
+    
+    crispsTimerSix = setInterval(() => {
+
+      removeCrispsClass(boardCurrentPosition105)
+      removeBoardClass(boardCurrentPosition105)
+      if (boardCurrentPosition105 <= 69 - 1 && boardCurrentPosition105 >= 56) {
+        console.log('crisps 1 moving')
+        boardCurrentPosition105++
+      } else {
+        console.log('crisps 1 stopped moving')
+        // clearInterval(boardTimerThree) // comment out!!!
+        boardCurrentPosition105 -= 13
+      }
+      console.log('crisps 1 UPDATED CURRENT>>', boardCurrentPosition105)
+    
+      addBoardClass(boardCurrentPosition105)
+      addCrispsClass(boardCurrentPosition105)
+    }, 800)
+  }
+  function moveCrispsSix() {
+    addBoardClass(boardCurrentPosition106)
+    addCrispsClass(boardCurrentPosition106)
+    console.log('Board 15 CURRENT POSITION', boardCurrentPosition106)
+    
+    crispsTimerSix = setInterval(() => {
+
+      removeCrispsClass(boardCurrentPosition106)
+      removeBoardClass(boardCurrentPosition106)
+      if (boardCurrentPosition106 <= 69 - 1 && boardCurrentPosition106 >= 56) {
+        console.log('crisps 1 moving')
+        boardCurrentPosition106++
+      } else {
+        console.log('crisps 1 stopped moving')
+        // clearInterval(boardTimerThree) // comment out!!!
+        boardCurrentPosition106 -= 13
+      }
+      console.log('crisps 1 UPDATED CURRENT>>', boardCurrentPosition106)
+    
+      addBoardClass(boardCurrentPosition106)
+      addCrispsClass(boardCurrentPosition106)
+    }, 800)
+  }
+  function moveCrispsSeven() {
+    addBoardClass(boardCurrentPosition107)
+    addCrispsClass(boardCurrentPosition107)
+    console.log('Board 15 CURRENT POSITION', boardCurrentPosition107)
+    
+    crispsTimerSix = setInterval(() => {
+
+      removeCrispsClass(boardCurrentPosition107)
+      removeBoardClass(boardCurrentPosition107)
+      if (boardCurrentPosition107 <= 69 - 1 && boardCurrentPosition107 >= 56) {
+        console.log('crisps 1 moving')
+        boardCurrentPosition107++
+      } else {
+        console.log('crisps 1 stopped moving')
+        // clearInterval(boardTimerThree) // comment out!!!
+        boardCurrentPosition107 -= 13
+      }
+      console.log('crisps 1 UPDATED CURRENT>>', boardCurrentPosition107)
+    
+      addBoardClass(boardCurrentPosition107)
+      addCrispsClass(boardCurrentPosition107)
+    }, 800)
+  }
+  function moveCrispsEight() {
+    addBoardClass(boardCurrentPosition108)
+    addCrispsClass(boardCurrentPosition108)
+    console.log('Board 15 CURRENT POSITION', boardCurrentPosition108)
+    
+    crispsTimerSix = setInterval(() => {
+
+      removeCrispsClass(boardCurrentPosition108)
+      removeBoardClass(boardCurrentPosition108)
+      if (boardCurrentPosition108 <= 69 - 1 && boardCurrentPosition108 >= 56) {
+        console.log('crisps 1 moving')
+        boardCurrentPosition108++
+      } else {
+        console.log('crisps 1 stopped moving')
+        // clearInterval(boardTimerThree) // comment out!!!
+        boardCurrentPosition108 -= 13
+      }
+      console.log('crisps 1 UPDATED CURRENT>>', boardCurrentPosition108)
+    
+      addBoardClass(boardCurrentPosition108)
+      addCrispsClass(boardCurrentPosition108)
     }, 800)
   }
   // * animate rat smoothly test

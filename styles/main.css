@@ -116,7 +116,7 @@ body {
   background-image: url('../images/crisps.PNG');
   background-repeat: no-repeat;
   background-size: contain;
-  transform: scale(1.1);
+  transform: scale(1);
 }
 .grid div.hole {
   background-image: url('../images/hole.png');
