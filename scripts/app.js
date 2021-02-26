@@ -81,6 +81,16 @@ function init() {
   let boardCurrentPosition10 = 75
   let boardCurrentPosition11 = 76
   let boardCurrentPosition12 = 77
+  let boardCurrentPosition13 = 80
+  let boardCurrentPosition14 = 81
+  let boardCurrentPosition15 = 82
+
+  let boardCurrentPosition101 = 57
+  let boardCurrentPosition102 = 58
+  let boardCurrentPosition103 = 59
+  let boardCurrentPosition104 = 62
+  let boardCurrentPosition105 = 63
+  let boardCurrentPosition106 = 64
 
 
   
@@ -101,6 +111,9 @@ function init() {
     moveRatNine(ratCurrentPosition9)
     moveRatTen(ratCurrentPosition10)
 
+    moveBoardFifteen(boardCurrentPosition15)
+    moveBoardFourteen(boardCurrentPosition14)
+    moveBoardThirteen(boardCurrentPosition13)
     moveBoardTwelve(boardCurrentPosition12)
     moveBoardEleven(boardCurrentPosition11)
     moveBoardTen(boardCurrentPosition10)
@@ -113,6 +126,13 @@ function init() {
     moveBoardThree(boardCurrentPosition3)
     moveBoardTwo(boardCurrentPosition2)
     moveBoardOne(boardCurrentPosition1)
+
+    moveCrispsSix(boardCurrentPosition106)
+    moveCrispsFive(boardCurrentPosition105)
+    moveCrispsFour(boardCurrentPosition104)
+    moveCrispsThree(boardCurrentPosition103)
+    moveCrispsTwo(boardCurrentPosition102)
+    moveCrispsOne(boardCurrentPosition101)
     
     
 
@@ -172,7 +192,7 @@ function init() {
   // if snailclass current position is same as class remove snail. 
   function snailDie() {
     console.log('snail current pos >>', snailCurrentPosition)
-    if (cells[snailCurrentPosition].classList.contains(unsafeLandClass) === true) {
+    if (cells[snailCurrentPosition].classList.contains(unsafeLandClass && snailClass) === true) {
       setTimeout(() => {
         popupLose.style.display = 'block'
         removeSnail(snailCurrentPosition)
@@ -456,7 +476,7 @@ function init() {
     
       addBoardClass(boardCurrentPosition1)
       addTwigStartClass(boardCurrentPosition1)
-    }, 2000)
+    }, 1000)
   }
   function moveBoardTwo() {
     addBoardClass(boardCurrentPosition2)
@@ -479,7 +499,7 @@ function init() {
     
       addBoardClass(boardCurrentPosition2)
       addTwigMiddleClass(boardCurrentPosition2)
-    }, 2000)
+    }, 1000)
   }
   function moveBoardThree() {
     addBoardClass(boardCurrentPosition3)
@@ -502,7 +522,7 @@ function init() {
     
       addBoardClass(boardCurrentPosition3)
       addTwigEndClass(boardCurrentPosition3)
-    }, 2000)
+    }, 1000)
   }
   
   function moveBoardFour() {
@@ -526,7 +546,7 @@ function init() {
     
       addBoardClass(boardCurrentPosition4)
       addTwigStartClass(boardCurrentPosition4)
-    }, 2000)
+    }, 1000)
   }
   function moveBoardFive() {
     addBoardClass(boardCurrentPosition5)
@@ -549,7 +569,7 @@ function init() {
     
       addBoardClass(boardCurrentPosition5)
       addTwigMiddleClass(boardCurrentPosition5)
-    }, 2000)
+    }, 1000)
   }
   function moveBoardSix() {
     addBoardClass(boardCurrentPosition6)
@@ -572,7 +592,7 @@ function init() {
     
       addBoardClass(boardCurrentPosition6)
       addTwigEndClass(boardCurrentPosition6)
-    }, 2000)
+    }, 1000)
   }
 
   function moveBoardSeven() {
@@ -596,9 +616,240 @@ function init() {
     
       addBoardClass(boardCurrentPosition7)
       addTwigStartClass(boardCurrentPosition7)
-    }, 2000)
+    }, 1000)
+  }
+  function moveBoardEight() {
+    addBoardClass(boardCurrentPosition8)
+    addTwigMiddleClass(boardCurrentPosition8)
+    console.log('Board 5 CURRENT POSITION', boardCurrentPosition8)
+    
+    boardTimerFive = setInterval(() => {
+
+      removeBoardClass(boardCurrentPosition8)
+      removeTwigMiddleClass(boardCurrentPosition8)
+      if (boardCurrentPosition8 <= 83 && boardCurrentPosition8 >= 70 + 1) {
+        console.log('board 8 moving')
+        boardCurrentPosition8--
+      } else {
+        console.log('board 8 stopped moving')
+        // clearInterval(boardTimerTwo) // comment out!!!
+        boardCurrentPosition8 += 13
+      }
+      console.log('board 8 UPDATED CURRENT>>', boardCurrentPosition8)
+    
+      addBoardClass(boardCurrentPosition8)
+      addTwigMiddleClass(boardCurrentPosition8)
+    }, 1000)
+  }
+  function moveBoardNine() {
+    addBoardClass(boardCurrentPosition9)
+    addTwigEndClass(boardCurrentPosition9)
+    console.log('Board 9 CURRENT POSITION', boardCurrentPosition9)
+    
+    boardTimerSix = setInterval(() => {
+
+      removeBoardClass(boardCurrentPosition9)
+      removeTwigEndClass(boardCurrentPosition9)
+      if (boardCurrentPosition9 <= 83 && boardCurrentPosition9 >= 70 + 1) {
+        console.log('board 9 moving')
+        boardCurrentPosition9--
+      } else {
+        console.log('board 9 stopped moving')
+        // clearInterval(boardTimerThree) // comment out!!!
+        boardCurrentPosition9 += 13
+      }
+      console.log('board 9 UPDATED CURRENT>>', boardCurrentPosition9)
+    
+      addBoardClass(boardCurrentPosition9)
+      addTwigEndClass(boardCurrentPosition9)
+    }, 1000)
+  }
+  function moveBoardTen() {
+    addBoardClass(boardCurrentPosition10)
+    addTwigStartClass(boardCurrentPosition10)
+    console.log('Board 10 CURRENT POSITION', boardCurrentPosition10)
+    
+    boardTimerOne = setInterval(() => {
+
+      removeBoardClass(boardCurrentPosition10)
+      removeTwigStartClass(boardCurrentPosition10)
+      if (boardCurrentPosition10 <= 83 && boardCurrentPosition10 >= 70 + 1) {
+        console.log('board 10 moving')
+        boardCurrentPosition10--
+      } else {
+        console.log('board 10 stopped moving')
+        // clearInterval(boardTimerOne) // comment out!!!
+        boardCurrentPosition10 += 13
+      }
+      console.log('board 10 UPDATED CURRENT>>', boardCurrentPosition10)
+    
+      addBoardClass(boardCurrentPosition10)
+      addTwigStartClass(boardCurrentPosition10)
+    }, 1000)
+  }
+  function moveBoardEleven() {
+    addBoardClass(boardCurrentPosition11)
+    addTwigMiddleClass(boardCurrentPosition11)
+    console.log('Board 11 CURRENT POSITION', boardCurrentPosition11)
+    
+    boardTimerTwo = setInterval(() => {
+
+      removeBoardClass(boardCurrentPosition11)
+      removeTwigMiddleClass(boardCurrentPosition11)
+      if (boardCurrentPosition11 <= 83 && boardCurrentPosition11 >= 70 +1) {
+        console.log('board 11 moving')
+        boardCurrentPosition11--
+      } else {
+        console.log('board 11 stopped moving')
+        // clearInterval(boardTimerTwo) // comment out!!!
+        boardCurrentPosition11 += 13
+      }
+      console.log('board 11 UPDATED CURRENT>>', boardCurrentPosition11)
+    
+      addBoardClass(boardCurrentPosition11)
+      addTwigMiddleClass(boardCurrentPosition11)
+    }, 1000)
+  }
+  function moveBoardTwelve() {
+    addBoardClass(boardCurrentPosition12)
+    addTwigEndClass(boardCurrentPosition12)
+    console.log('Board 12 CURRENT POSITION', boardCurrentPosition12)
+    
+    boardTimerSix = setInterval(() => {
+
+      removeBoardClass(boardCurrentPosition12)
+      removeTwigEndClass(boardCurrentPosition12)
+      if (boardCurrentPosition12 <= 83 && boardCurrentPosition12 >= 70 + 1) {
+        console.log('board 12 moving')
+        boardCurrentPosition12--
+      } else {
+        console.log('board 12 stopped moving')
+        // clearInterval(boardTimerThree) // comment out!!!
+        boardCurrentPosition12 += 13
+      }
+      console.log('board 9 UPDATED CURRENT>>', boardCurrentPosition12)
+    
+      addBoardClass(boardCurrentPosition12)
+      addTwigEndClass(boardCurrentPosition12)
+    }, 1000)
+  }
+  function moveBoardThirteen() {
+    addBoardClass(boardCurrentPosition13)
+    addTwigStartClass(boardCurrentPosition13)
+    console.log('Board 13 CURRENT POSITION', boardCurrentPosition13)
+    
+    boardTimerOne = setInterval(() => {
+
+      removeBoardClass(boardCurrentPosition13)
+      removeTwigStartClass(boardCurrentPosition13)
+      if (boardCurrentPosition13 <= 83 && boardCurrentPosition13 >= 70 + 1) {
+        console.log('board 13 moving')
+        boardCurrentPosition13--
+      } else {
+        console.log('board 13 stopped moving')
+        // clearInterval(boardTimerOne) // comment out!!!
+        boardCurrentPosition13 += 13
+      }
+      console.log('board 13 UPDATED CURRENT>>', boardCurrentPosition13)
+    
+      addBoardClass(boardCurrentPosition13)
+      addTwigStartClass(boardCurrentPosition13)
+    }, 1000)
+  }
+  function moveBoardFourteen() {
+    addBoardClass(boardCurrentPosition14)
+    addTwigMiddleClass(boardCurrentPosition14)
+    console.log('Board 14 CURRENT POSITION', boardCurrentPosition14)
+    
+    boardTimerFive = setInterval(() => {
+
+      removeBoardClass(boardCurrentPosition14)
+      removeTwigMiddleClass(boardCurrentPosition14)
+      if (boardCurrentPosition14 <= 83 && boardCurrentPosition14 >= 70 + 1) {
+        console.log('board 14 moving')
+        boardCurrentPosition14--
+      } else {
+        console.log('board 14 stopped moving')
+        // clearInterval(boardTimerTwo) // comment out!!!
+        boardCurrentPosition14 += 13
+      }
+      console.log('board 14 UPDATED CURRENT>>', boardCurrentPosition14)
+    
+      addBoardClass(boardCurrentPosition14)
+      addTwigMiddleClass(boardCurrentPosition14)
+    }, 1000)
+  }
+  function moveBoardFifteen() {
+    addBoardClass(boardCurrentPosition15)
+    addTwigEndClass(boardCurrentPosition15)
+    console.log('Board 15 CURRENT POSITION', boardCurrentPosition15)
+    
+    boardTimerSix = setInterval(() => {
+
+      removeBoardClass(boardCurrentPosition15)
+      removeTwigEndClass(boardCurrentPosition15)
+      if (boardCurrentPosition15 <= 83 && boardCurrentPosition15 >= 70 + 1) {
+        console.log('board 15 moving')
+        boardCurrentPosition15--
+      } else {
+        console.log('board 15 stopped moving')
+        // clearInterval(boardTimerThree) // comment out!!!
+        boardCurrentPosition15 += 13
+      }
+      console.log('board 15 UPDATED CURRENT>>', boardCurrentPosition15)
+    
+      addBoardClass(boardCurrentPosition15)
+      addTwigEndClass(boardCurrentPosition15)
+    }, 1000)
   }
 
+
+  function moveCrispsOne() {
+    addBoardClass(boardCurrentPosition101)
+    addCrispsClass(boardCurrentPosition101)
+    console.log('Board 15 CURRENT POSITION', boardCurrentPosition101)
+    
+    crispsTimerSix = setInterval(() => {
+
+      removeCrispsClass(boardCurrentPosition101)
+      removeBoardClass(boardCurrentPosition101)
+      if (boardCurrentPosition101 <= 69 - 1 && boardCurrentPosition101 >= 56) {
+        console.log('crisps 1 moving')
+        boardCurrentPosition101++
+      } else {
+        console.log('crisps 1 stopped moving')
+        // clearInterval(boardTimerThree) // comment out!!!
+        boardCurrentPosition101 -= 13
+      }
+      console.log('crisps 1 UPDATED CURRENT>>', boardCurrentPosition101)
+    
+      addBoardClass(boardCurrentPosition101)
+      addCrispsClass(boardCurrentPosition101)
+    }, 800)
+  }
+  function moveCrispsTwo() {
+    addBoardClass(boardCurrentPosition102)
+    addCrispsClass(boardCurrentPosition102)
+    console.log('Board 15 CURRENT POSITION', boardCurrentPosition102)
+    
+    crispsTimerSix = setInterval(() => {
+
+      removeCrispsClass(boardCurrentPosition102)
+      removeBoardClass(boardCurrentPosition102)
+      if (boardCurrentPosition102 <= 69 - 1 && boardCurrentPosition102 >= 56) {
+        console.log('crisps 1 moving')
+        boardCurrentPosition102++
+      } else {
+        console.log('crisps 1 stopped moving')
+        // clearInterval(boardTimerThree) // comment out!!!
+        boardCurrentPosition102 -= 13
+      }
+      console.log('crisps 1 UPDATED CURRENT>>', boardCurrentPosition102)
+    
+      addBoardClass(boardCurrentPosition102)
+      addCrispsClass(boardCurrentPosition102)
+    }, 800)
+  }
   // * animate rat smoothly test
 
   // const rat = document.getElementById('#rat')
@@ -703,6 +954,14 @@ function init() {
   // * remove board Class
   function removeBoardClass(position) {
     cells[position].classList.remove(boardClass)
+  }
+
+  // * add and remove Crisps
+  function addCrispsClass(position) {
+    cells[position].classList.add(crispsClass)
+  }
+  function removeCrispsClass(position) {
+    cells[position].classList.remove(crispsClass)
   }
 
   // * add & remove twig start

@@ -84,10 +84,6 @@ body {
   background-position: center;
 }
 
-
-.grid div.crisp-packet {
-  background-color:rgb(247, 216, 44)
-}
 .grid div.twig-start {
   background-color: rgb(44, 44, 49);
   background-image: url('../images/twig-start.png');
@@ -110,10 +106,17 @@ body {
   background-position: center;
 }
 
+
 .grid div.unsafe { /* move up when unsafe land sorted */
 }
 .grid div.water {
   background-color: #242533;
+}
+.grid div.crisp-packet {
+  background-image: url('../images/crisps.PNG');
+  background-repeat: no-repeat;
+  background-size: contain;
+  transform: scale(1.1);
 }
 .grid div.hole {
   background-image: url('../images/hole.png');
