@@ -71,6 +71,10 @@ function init() {
   let boardCurrentPosition1 = 84
   let boardCurrentPosition2 = 85
   let boardCurrentPosition3 = 86
+  let boardCurrentPosition4 = 91
+  let boardCurrentPosition5 = 92
+  let boardCurrentPosition6 = 93
+
 
   
 
@@ -90,6 +94,9 @@ function init() {
     moveRatNine(ratCurrentPosition9)
     moveRatTen(ratCurrentPosition10)
 
+    moveBoardSix(boardCurrentPosition6)
+    moveBoardFive(boardCurrentPosition5)
+    moveBoardFour(boardCurrentPosition4)
     moveBoardThree(boardCurrentPosition3)
     moveBoardTwo(boardCurrentPosition2)
     moveBoardOne(boardCurrentPosition1)
@@ -463,11 +470,13 @@ function init() {
   }
   function moveBoardThree() {
     addBoardClass(boardCurrentPosition3)
+    addTwigEndClass(boardCurrentPosition3)
     console.log('Board 3 CURRENT POSITION', boardCurrentPosition3)
     
     boardTimerThree = setInterval(() => {
 
       removeBoardClass(boardCurrentPosition3)
+      removeTwigEndClass(boardCurrentPosition3)
       if (boardCurrentPosition3 <= 97-1 && boardCurrentPosition3 >= 84) {
         console.log('board 3 moving')
         boardCurrentPosition3++
@@ -479,11 +488,80 @@ function init() {
       console.log('board 3 UPDATED CURRENT>>', boardCurrentPosition3)
     
       addBoardClass(boardCurrentPosition3)
+      addTwigEndClass(boardCurrentPosition3)
     }, 2000)
   }
+  
+  function moveBoardFour() {
+    addBoardClass(boardCurrentPosition4)
+    addTwigStartClass(boardCurrentPosition4)
+    console.log('Board 4 CURRENT POSITION', boardCurrentPosition4)
     
+    boardTimerFour = setInterval(() => {
 
+      removeBoardClass(boardCurrentPosition4)
+      removeTwigStartClass(boardCurrentPosition4)
+      if (boardCurrentPosition4 <= 97-1 && boardCurrentPosition4 >= 84) {
+        console.log('board 4 moving')
+        boardCurrentPosition4++
+      } else {
+        console.log('board 4 stopped moving')
+        // clearInterval(boardTimerOne) // comment out!!!
+        boardCurrentPosition4 -= 13
+      }
+      console.log('board 4 UPDATED CURRENT>>', boardCurrentPosition4)
+    
+      addBoardClass(boardCurrentPosition4)
+      addTwigStartClass(boardCurrentPosition4)
+    }, 2000)
+  }
+  function moveBoardFive() {
+    addBoardClass(boardCurrentPosition5)
+    addTwigMiddleClass(boardCurrentPosition5)
+    console.log('Board 5 CURRENT POSITION', boardCurrentPosition5)
+    
+    boardTimerFive = setInterval(() => {
 
+      removeBoardClass(boardCurrentPosition5)
+      removeTwigMiddleClass(boardCurrentPosition5)
+      if (boardCurrentPosition5 <= 97-1 && boardCurrentPosition5 >= 84) {
+        console.log('board 5 moving')
+        boardCurrentPosition5++
+      } else {
+        console.log('board 5 stopped moving')
+        // clearInterval(boardTimerTwo) // comment out!!!
+        boardCurrentPosition5 -= 13
+      }
+      console.log('board 5 UPDATED CURRENT>>', boardCurrentPosition5)
+    
+      addBoardClass(boardCurrentPosition5)
+      addTwigMiddleClass(boardCurrentPosition5)
+    }, 2000)
+  }
+  function moveBoardSix() {
+    addBoardClass(boardCurrentPosition6)
+    addTwigEndClass(boardCurrentPosition6)
+    console.log('Board 6 CURRENT POSITION', boardCurrentPosition6)
+    
+    boardTimerSix = setInterval(() => {
+
+      removeBoardClass(boardCurrentPosition6)
+      removeTwigEndClass(boardCurrentPosition6)
+      if (boardCurrentPosition6 <= 97-1 && boardCurrentPosition6 >= 84) {
+        console.log('board 6 moving')
+        boardCurrentPosition6++
+      } else {
+        console.log('board 6 stopped moving')
+        // clearInterval(boardTimerThree) // comment out!!!
+        boardCurrentPosition6 -= 13
+      }
+      console.log('board 6 UPDATED CURRENT>>', boardCurrentPosition6)
+    
+      addBoardClass(boardCurrentPosition6)
+      addTwigEndClass(boardCurrentPosition6)
+    }, 2000)
+  }
+  
   // * animate rat smoothly test
 
   // const rat = document.getElementById('#rat')

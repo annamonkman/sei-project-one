@@ -89,13 +89,25 @@ body {
   background-color:rgb(247, 216, 44)
 }
 .grid div.twig-start {
-  background-color: silver;
+  background-color: rgb(44, 44, 49);
+  background-image: url('../images/twig-start.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
 }
 .grid div.twig-middle {
-  background-color: silver;
+  background-color: rgb(44, 44, 49);
+  background-image: url('../images/twig-middle.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
 }
 .grid div.twig-end {
-  background-color: silver;
+  background-color: rgb(44, 44, 49);
+  background-image: url('../images/twig-end.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
 }
 
 .grid div.unsafe { /* move up when unsafe land sorted */
@@ -129,7 +141,7 @@ body {
   transform: scale(1.5)
 } */
 .grid div.board {
-  background-color: silver;
+  /* background-color: silver; */
 }
 .popup-start, .popup-lose, .popup-win{
   position:absolute;
