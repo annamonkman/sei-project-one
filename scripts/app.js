@@ -73,12 +73,12 @@ function init() {
   const twigEndClass = 'twig-end'
   const pathClass = 'path'
 
-  const unsafeLandArray = [0, 1, 3, 4, 6, 8, 9, 11, 12, 14, 15, 17, 18, 20, 22, 23, 25, 26, /*28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55,*/ 56, 57, 58, 59, 60, 61, 62, 63, 64, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 94, 95, 96, 97, 127, 131, 137]
+  const unsafeLandArray = [0, 1, 3, 4, 6, 8, 9, 11, 12, 14, 15, 17, 18, 20, 22, 23, 25, 26, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 127, 131, 137]
   const roadArray = [112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 140, 141, 142, 143, 144, 145, 146, 147, 148, 149, 150, 151, 152, 153, 154, 155, 156, 157, 158, 159, 160, 161, 162, 163, 164, 165, 166, 167]
-  const waterArray = [0, 1, 3, 4, 6, 8, 9, 11, 12, 14, 15, 17, 18, 20, 22, 23, 25, 26, 56, 57, 58, 59, 60, 61, 62, 63, 64, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 94, 95, 96, 97]
+  const waterArray = [0, 1, 3, 4, 6, 8, 9, 11, 12, 14, 15, 17, 18, 20, 22, 23, 25, 26, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97]
   const startStripArray = [168, 169, 170, 171, 172, 173, 174, 175, 176, 177, 178, 179, 180, 181]
   const middleStripArray = [98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111]
-  const pathArray = [28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55,]
+  // const pathArray = [28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55]
 
   // const ratStartPosition = 167
   let ratCurrentPosition1 = 167
@@ -91,6 +91,7 @@ function init() {
   let ratCurrentPosition8 = 124
   let ratCurrentPosition9 = 120
   let ratCurrentPosition10 = 116
+  let ratCurrentPosition
 
   let boardCurrentPosition1 = 84
   let boardCurrentPosition2 = 85
@@ -176,7 +177,7 @@ function init() {
   function createGrid() {
     for (let i = 0; i < cellCount; i++) {
       const cell = document.createElement('div')
-      cell.textContent = i
+      // cell.textContent = i
       grid.appendChild(cell)
       cells.push(cell)
     }
@@ -196,7 +197,7 @@ function init() {
   // * Move Snail
   function handleKeyUp(event) {
     const key = event.keyCode
-    if (popupStart.style.display !== 'none' || popupLose.style.display !== 'none' || popupWin.style.display !== 'none' || cells[snailCurrentPosition].classList.contains(unsafeLandClass) === true ) {
+    if (popupStart.style.display !== 'none' || popupLose.style.display !== 'none' || popupWin.style.display !== 'none' || cells[snailCurrentPosition].classList.contains(unsafeLandClass) === true && cells[snailCurrentPosition].classList.contains(boardClass) !== true) {
       return
     }
 
@@ -223,7 +224,7 @@ function init() {
   // if snailclass current position is same as class remove snail. 
   function snailDie() {
     console.log('snail current pos >>', snailCurrentPosition)
-    if (cells[snailCurrentPosition].classList.contains(unsafeLandClass) === true && cells[snailCurrentPosition].classList.contains(snailClass) === true) {
+    if (cells[snailCurrentPosition].classList.contains(unsafeLandClass) === true && cells[snailCurrentPosition].classList.contains(ratClass) === true && cells[ratCurrentPosition].classList.contains(snailClass) === true && cells[snailCurrentPosition].classList.contains(boardClass) !== true){
       setTimeout(() => {
         popupLose.style.display = 'block'
         removeSnail(snailCurrentPosition)
@@ -275,6 +276,39 @@ function init() {
       setTimeout(() => {
         popupWin.style.display = 'block'
         removeSnail(snailCurrentPosition)
+        clearInterval(ratTimerOne)
+        clearInterval(ratTimerTwo)
+        clearInterval(ratTimerThree)
+        clearInterval(ratTimerFour)
+        clearInterval(ratTimerFive)
+        clearInterval(ratTimerSix)
+        clearInterval(ratTimerSeven)
+        clearInterval(ratTimerEight)
+        clearInterval(ratTimerNine)
+        clearInterval(ratTimerTen)
+        clearInterval(boardTimerOne)
+        clearInterval(boardTimerTwo)
+        clearInterval(boardTimerThree)
+        clearInterval(boardTimerFour)
+        clearInterval(boardTimerFive)
+        clearInterval(boardTimerSix)
+        clearInterval(boardTimerSeven)
+        clearInterval(boardTimerEight)
+        clearInterval(boardTimerNine)
+        clearInterval(boardTimerTen)
+        clearInterval(boardTimerEleven)
+        clearInterval(boardTimerTwelve)
+        clearInterval(boardTimerThirteen)
+        clearInterval(boardTimerFourteen)
+        clearInterval(boardTimerFifteen)
+        clearInterval(crispsTimerOne)
+        clearInterval(crispsTimerTwo)
+        clearInterval(crispsTimerThree)
+        clearInterval(crispsTimerFour)
+        clearInterval(crispsTimerFive)
+        clearInterval(crispsTimerSix)
+        clearInterval(crispsTimerSeven)
+        clearInterval(crispsTimerEight)
       }, 800)
     }
   }
@@ -1225,23 +1259,34 @@ function init() {
   addHoleClass(127)
   addHoleClass(131)
 
-  addPipeClass(16)
-  addPipeClass(19)
-  addPipeClass(21)
-  addPipeClass(24)
-  addPipeClass(27)
+  addPipeClass(44)
+  addPipeClass(47)
+  addPipeClass(49)
+  addPipeClass(52)
+  addPipeClass(55)
+
   addPipeBodyClass(2)
   addPipeBodyClass(5)
   addPipeBodyClass(7)
   addPipeBodyClass(10)
   addPipeBodyClass(13)
+  addPipeBodyClass(16)
+  addPipeBodyClass(19)
+  addPipeBodyClass(21)
+  addPipeBodyClass(24)
+  addPipeBodyClass(27)
+  addPipeBodyClass(30)
+  addPipeBodyClass(33)
+  addPipeBodyClass(35)
+  addPipeBodyClass(38)
+  addPipeBodyClass(41)
 
   addUnsafeLandClass(unsafeLandArray)
   addStartStripClass(startStripArray)
   addRoadClass(roadArray)
   addMiddleStripClass(middleStripArray)
   addWaterClass(waterArray)
-  addPathClass(pathArray)
+  // addPathClass(pathArray)
   
 
 
