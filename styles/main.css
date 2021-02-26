@@ -56,8 +56,11 @@ body {
   background-image: url('../images/rat1.png');
   background-repeat: no-repeat;
   background-size: contain;
-  background-color: #cec8b7;
+  /* background-color: #cec8b7; */
+  transform: scale(1);
+  background-position-y: center;
 }
+
 .grid div.middle-strip {
   background-image: url('../images/middle-strip1.png');
   background-color: black;
@@ -81,12 +84,20 @@ body {
   background-position: center;
 }
 
+
 .grid div.crisp-packet {
   background-color:rgb(247, 216, 44)
 }
-.grid div.twig {
+.grid div.twig-start {
   background-color: silver;
 }
+.grid div.twig-middle {
+  background-color: silver;
+}
+.grid div.twig-end {
+  background-color: silver;
+}
+
 .grid div.unsafe { /* move up when unsafe land sorted */
 }
 .grid div.water {
@@ -114,7 +125,12 @@ body {
   background-size: contain;
   cursor: pointer;
 }
-
+/* .snail img{
+  transform: scale(1.5)
+} */
+.grid div.board {
+  background-color: silver;
+}
 .popup-start, .popup-lose, .popup-win{
   position:absolute;
   width: 900px;

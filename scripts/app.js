@@ -44,8 +44,11 @@ function init() {
   const middleStripClass = 'middle-strip'
   const holeClass = 'hole'
   const fireClass = 'fire'
+  const boardClass = 'board'
   const crispsClass = 'crisp-packet'
-  const twigClass = 'twig'
+  const twigStartClass = 'twig-start'
+  const twigMiddleClass = 'twig-middle'
+  const twigEndClass = 'twig-end'
 
   const unsafeLandArray = [0, 1, 3, 4, 6, 8, 9, 11, 12, 14, 15, 17, 18, 20, 22, 23, 25, 26, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 127, 131, 137]
   const roadArray = [112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 140, 141, 142, 143, 144, 145, 146, 147, 148, 149, 150, 151, 152, 153, 154, 155, 156, 157, 158, 159, 160, 161, 162, 163, 164, 165, 166, 167]
@@ -64,6 +67,11 @@ function init() {
   let ratCurrentPosition8 = 124
   let ratCurrentPosition9 = 120
   let ratCurrentPosition10 = 116
+
+  let boardCurrentPosition1 = 84
+  let boardCurrentPosition2 = 85
+  let boardCurrentPosition3 = 86
+
   
 
   function startGame() {
@@ -81,6 +89,12 @@ function init() {
     moveRatEight(ratCurrentPosition8)
     moveRatNine(ratCurrentPosition9)
     moveRatTen(ratCurrentPosition10)
+
+    moveBoardThree(boardCurrentPosition3)
+    moveBoardTwo(boardCurrentPosition2)
+    moveBoardOne(boardCurrentPosition1)
+    
+    
 
     snailCurrentPosition = 175
     addSnail(snailCurrentPosition)
@@ -182,7 +196,7 @@ function init() {
     
       addUnsafeClass(ratCurrentPosition1)
       addRatClass(ratCurrentPosition1)
-    }, 600)
+    }, 800)
   }
 
   function moveRatTwo() {
@@ -206,7 +220,7 @@ function init() {
     
       addUnsafeClass(ratCurrentPosition2)
       addRatClass(ratCurrentPosition2)
-    }, 2000)
+    }, 800)
   }
 
   function moveRatThree() {
@@ -230,7 +244,7 @@ function init() {
     
       addUnsafeClass(ratCurrentPosition3)
       addRatClass(ratCurrentPosition3)
-    }, 2000)
+    }, 800)
   }
 
   function moveRatFour() {
@@ -254,7 +268,7 @@ function init() {
     
       addUnsafeClass(ratCurrentPosition4)
       addRatClass(ratCurrentPosition4)
-    }, 2000)
+    }, 800)
   }
 
   function moveRatFive() {
@@ -266,7 +280,7 @@ function init() {
 
       removeUnsafeClass(ratCurrentPosition5)
       removeRatClass(ratCurrentPosition5)
-      if (ratCurrentPosition5 <= 153 && ratCurrentPosition5 >= 140) {
+      if (ratCurrentPosition5 <= 153-1 && ratCurrentPosition5 >= 140) {
         console.log('rat 5 moving')
         ratCurrentPosition5++
       } else {
@@ -278,7 +292,7 @@ function init() {
     
       addUnsafeClass(ratCurrentPosition5)
       addRatClass(ratCurrentPosition5)
-    }, 2000)
+    }, 600)
   }
 
   function moveRatSix() {
@@ -290,7 +304,7 @@ function init() {
 
       removeUnsafeClass(ratCurrentPosition6)
       removeRatClass(ratCurrentPosition6)
-      if (ratCurrentPosition6 <= 153 && ratCurrentPosition6 >= 140) {
+      if (ratCurrentPosition6 <= 153-1 && ratCurrentPosition6 >= 140) {
         console.log('rat 6 moving')
         ratCurrentPosition6++
       } else {
@@ -302,7 +316,7 @@ function init() {
     
       addUnsafeClass(ratCurrentPosition6)
       addRatClass(ratCurrentPosition6)
-    }, 2000)
+    }, 600)
   }
 
   function moveRatSeven() {
@@ -314,7 +328,7 @@ function init() {
 
       removeUnsafeClass(ratCurrentPosition7)
       removeRatClass(ratCurrentPosition7)
-      if (ratCurrentPosition7 <= 153 && ratCurrentPosition7 >= 140) {
+      if (ratCurrentPosition7 <= 153-1 && ratCurrentPosition7 >= 140) {
         console.log('rat 7 moving')
         ratCurrentPosition7++
       } else {
@@ -326,7 +340,7 @@ function init() {
     
       addUnsafeClass(ratCurrentPosition7)
       addRatClass(ratCurrentPosition7)
-    }, 2000)
+    }, 600)
   }
 
   function moveRatEight() {
@@ -350,7 +364,7 @@ function init() {
     
       addUnsafeClass(ratCurrentPosition8)
       addRatClass(ratCurrentPosition8)
-    }, 2000)
+    }, 700)
   }
 
   function moveRatNine() {
@@ -374,7 +388,7 @@ function init() {
     
       addUnsafeClass(ratCurrentPosition9)
       addRatClass(ratCurrentPosition9)
-    }, 2000)
+    }, 700)
   }
 
   function moveRatTen() {
@@ -398,10 +412,75 @@ function init() {
     
       addUnsafeClass(ratCurrentPosition10)
       addRatClass(ratCurrentPosition10)
-    }, 2000)
+    }, 700)
   }
   
+  function moveBoardOne() {
+    addBoardClass(boardCurrentPosition1)
+    addTwigStartClass(boardCurrentPosition1)
+    console.log('Board 1 CURRENT POSITION', boardCurrentPosition1)
     
+    boardTimerOne = setInterval(() => {
+
+      removeBoardClass(boardCurrentPosition1)
+      removeTwigStartClass(boardCurrentPosition1)
+      if (boardCurrentPosition1 <= 97-1 && boardCurrentPosition1 >= 84) {
+        console.log('board 1 moving')
+        boardCurrentPosition1++
+      } else {
+        console.log('board 1 stopped moving')
+        // clearInterval(boardTimerOne) // comment out!!!
+        boardCurrentPosition1 -= 13
+      }
+      console.log('board 1 UPDATED CURRENT>>', boardCurrentPosition1)
+    
+      addBoardClass(boardCurrentPosition1)
+      addTwigStartClass(boardCurrentPosition1)
+    }, 2000)
+  }
+  function moveBoardTwo() {
+    addBoardClass(boardCurrentPosition2)
+    addTwigMiddleClass(boardCurrentPosition2)
+    console.log('Board 2 CURRENT POSITION', boardCurrentPosition2)
+    
+    boardTimerTwo = setInterval(() => {
+
+      removeBoardClass(boardCurrentPosition2)
+      removeTwigMiddleClass(boardCurrentPosition2)
+      if (boardCurrentPosition2 <= 97-1 && boardCurrentPosition2 >= 84) {
+        console.log('board 2 moving')
+        boardCurrentPosition2++
+      } else {
+        console.log('board 2 stopped moving')
+        // clearInterval(boardTimerTwo) // comment out!!!
+        boardCurrentPosition2 -= 13
+      }
+      console.log('board 2 UPDATED CURRENT>>', boardCurrentPosition2)
+    
+      addBoardClass(boardCurrentPosition2)
+      addTwigMiddleClass(boardCurrentPosition2)
+    }, 2000)
+  }
+  function moveBoardThree() {
+    addBoardClass(boardCurrentPosition3)
+    console.log('Board 3 CURRENT POSITION', boardCurrentPosition3)
+    
+    boardTimerThree = setInterval(() => {
+
+      removeBoardClass(boardCurrentPosition3)
+      if (boardCurrentPosition3 <= 97-1 && boardCurrentPosition3 >= 84) {
+        console.log('board 3 moving')
+        boardCurrentPosition3++
+      } else {
+        console.log('board 3 stopped moving')
+        // clearInterval(boardTimerThree) // comment out!!!
+        boardCurrentPosition3 -= 13
+      }
+      console.log('board 3 UPDATED CURRENT>>', boardCurrentPosition3)
+    
+      addBoardClass(boardCurrentPosition3)
+    }, 2000)
+  }
     
 
 
@@ -500,6 +579,39 @@ function init() {
 
   function removeUnsafeClass(position) {
     cells[position].classList.remove(unsafeClass)
+  }
+
+  // * add boardClass
+  function addBoardClass(position) {
+    cells[position].classList.add(boardClass)
+  }
+  // * remove board Class
+  function removeBoardClass(position) {
+    cells[position].classList.remove(boardClass)
+  }
+
+  // * add & remove twig start
+  function addTwigStartClass(position) {
+    cells[position].classList.add(twigStartClass)
+  }
+  function removeTwigStartClass(position) {
+    cells[position].classList.remove(twigStartClass)
+  }
+
+  // * add & remove twig middle
+  function addTwigMiddleClass(position) {
+    cells[position].classList.add(twigMiddleClass)
+  }
+  function removeTwigMiddleClass(position) {
+    cells[position].classList.remove(twigMiddleClass)
+  }
+
+  // * add & remove twig end
+  function addTwigEndClass(position) {
+    cells[position].classList.add(twigEndClass)
+  }
+  function removeTwigEndClass(position) {
+    cells[position].classList.remove(twigEndClass)
   }
 
   // * Add rat Class to cells
