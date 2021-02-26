@@ -75,6 +75,13 @@ function init() {
   let boardCurrentPosition5 = 92
   let boardCurrentPosition6 = 93
 
+  let boardCurrentPosition7 = 72
+  let boardCurrentPosition8 = 73
+  let boardCurrentPosition9 = 74
+  let boardCurrentPosition10 = 75
+  let boardCurrentPosition11 = 76
+  let boardCurrentPosition12 = 77
+
 
   
 
@@ -94,6 +101,12 @@ function init() {
     moveRatNine(ratCurrentPosition9)
     moveRatTen(ratCurrentPosition10)
 
+    moveBoardTwelve(boardCurrentPosition12)
+    moveBoardEleven(boardCurrentPosition11)
+    moveBoardTen(boardCurrentPosition10)
+    moveBoardNine(boardCurrentPosition9)
+    moveBoardEight(boardCurrentPosition8)
+    moveBoardSeven(boardCurrentPosition7)
     moveBoardSix(boardCurrentPosition6)
     moveBoardFive(boardCurrentPosition5)
     moveBoardFour(boardCurrentPosition4)
@@ -561,7 +574,31 @@ function init() {
       addTwigEndClass(boardCurrentPosition6)
     }, 2000)
   }
-  
+
+  function moveBoardSeven() {
+    addBoardClass(boardCurrentPosition7)
+    addTwigStartClass(boardCurrentPosition7)
+    console.log('Board 7 CURRENT POSITION', boardCurrentPosition7)
+    
+    boardTimerOne = setInterval(() => {
+
+      removeBoardClass(boardCurrentPosition7)
+      removeTwigStartClass(boardCurrentPosition7)
+      if (boardCurrentPosition7 <= 83 && boardCurrentPosition7 >= 70 + 1) {
+        console.log('board 7 moving')
+        boardCurrentPosition7--
+      } else {
+        console.log('board 7 stopped moving')
+        // clearInterval(boardTimerOne) // comment out!!!
+        boardCurrentPosition7 += 13
+      }
+      console.log('board 7 UPDATED CURRENT>>', boardCurrentPosition7)
+    
+      addBoardClass(boardCurrentPosition7)
+      addTwigStartClass(boardCurrentPosition7)
+    }, 2000)
+  }
+
   // * animate rat smoothly test
 
   // const rat = document.getElementById('#rat')
