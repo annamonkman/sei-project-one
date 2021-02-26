@@ -88,7 +88,6 @@ body {
   background-color: silver;
 }
 .grid div.unsafe { /* move up when unsafe land sorted */
-  background-color: rgb(231, 123, 123);
 }
 .grid div.water {
   background-color: #242533;
@@ -101,7 +100,7 @@ body {
 }
 .grid div.fire {
   /* background-color: rgb(250, 107, 54); */
-  background-image: url('../images/fire.gif');
+  background-image: url('../images/fire2.gif');
   background-repeat: no-repeat;
   background-size: 120%;
   background-color: #cec8b7;

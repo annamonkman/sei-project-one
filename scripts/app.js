@@ -91,7 +91,7 @@ function init() {
   function createGrid() {
     for (let i = 0; i < cellCount; i++) {
       const cell = document.createElement('div')
-      // cell.textContent = i
+      cell.textContent = i
       grid.appendChild(cell)
       cells.push(cell)
     }
@@ -187,11 +187,13 @@ function init() {
 
   function moveRatTwo() {
     addUnsafeClass(ratCurrentPosition2)
+    addRatClass(ratCurrentPosition2)
     console.log('RAT 2 CURRENT POSITION', ratCurrentPosition2)
     
     ratTimerTwo = setInterval(() => {
 
       removeUnsafeClass(ratCurrentPosition2)
+      removeRatClass(ratCurrentPosition2)
       if (ratCurrentPosition2 <= 167 && ratCurrentPosition2 >= 154 + 1) {
         console.log('rat 2 moving')
         ratCurrentPosition2--
@@ -203,16 +205,19 @@ function init() {
       console.log('RAT 2 UPDATED CURRENT>>', ratCurrentPosition2)
     
       addUnsafeClass(ratCurrentPosition2)
-    }, 600)
+      addRatClass(ratCurrentPosition2)
+    }, 2000)
   }
 
   function moveRatThree() {
     addUnsafeClass(ratCurrentPosition3)
+    addRatClass(ratCurrentPosition3)
     console.log('RAT 3 CURRENT POSITION', ratCurrentPosition3)
     
     ratTimerThree = setInterval(() => {
 
       removeUnsafeClass(ratCurrentPosition3)
+      removeRatClass(ratCurrentPosition3)
       if (ratCurrentPosition3 <= 167 && ratCurrentPosition3 >= 154 + 1) {
         console.log('rat 3 moving')
         ratCurrentPosition3--
@@ -224,16 +229,19 @@ function init() {
       console.log('RAT 3 UPDATED CURRENT>>', ratCurrentPosition3)
     
       addUnsafeClass(ratCurrentPosition3)
-    }, 600)
+      addRatClass(ratCurrentPosition3)
+    }, 2000)
   }
 
   function moveRatFour() {
     addUnsafeClass(ratCurrentPosition4)
+    addRatClass(ratCurrentPosition4)
     console.log('RAT 4 CURRENT POSITION', ratCurrentPosition4)
     
     ratTimerFour = setInterval(() => {
 
       removeUnsafeClass(ratCurrentPosition4)
+      removeRatClass(ratCurrentPosition4)
       if (ratCurrentPosition4 <= 167 && ratCurrentPosition4 >= 154 + 1) {
         console.log('rat 4 moving')
         ratCurrentPosition4--
@@ -245,16 +253,19 @@ function init() {
       console.log('RAT 4 UPDATED CURRENT>>', ratCurrentPosition4)
     
       addUnsafeClass(ratCurrentPosition4)
-    }, 600)
+      addRatClass(ratCurrentPosition4)
+    }, 2000)
   }
 
   function moveRatFive() {
     addUnsafeClass(ratCurrentPosition5)
+    addRatClass(ratCurrentPosition5)
     console.log('RAT 5 CURRENT POSITION', ratCurrentPosition5)
     
     ratTimerFive = setInterval(() => {
 
       removeUnsafeClass(ratCurrentPosition5)
+      removeRatClass(ratCurrentPosition5)
       if (ratCurrentPosition5 <= 153 && ratCurrentPosition5 >= 140) {
         console.log('rat 5 moving')
         ratCurrentPosition5++
@@ -266,16 +277,19 @@ function init() {
       console.log('RAT 5 UPDATED CURRENT>>', ratCurrentPosition5)
     
       addUnsafeClass(ratCurrentPosition5)
-    }, 700)
+      addRatClass(ratCurrentPosition5)
+    }, 2000)
   }
 
   function moveRatSix() {
     addUnsafeClass(ratCurrentPosition6)
+    addRatClass(ratCurrentPosition6)
     console.log('RAT 6 CURRENT POSITION', ratCurrentPosition6)
     
     ratTimerSix = setInterval(() => {
 
       removeUnsafeClass(ratCurrentPosition6)
+      removeRatClass(ratCurrentPosition6)
       if (ratCurrentPosition6 <= 153 && ratCurrentPosition6 >= 140) {
         console.log('rat 6 moving')
         ratCurrentPosition6++
@@ -287,16 +301,19 @@ function init() {
       console.log('RAT 6 UPDATED CURRENT>>', ratCurrentPosition6)
     
       addUnsafeClass(ratCurrentPosition6)
-    }, 700)
+      addRatClass(ratCurrentPosition6)
+    }, 2000)
   }
 
   function moveRatSeven() {
     addUnsafeClass(ratCurrentPosition7)
+    addRatClass(ratCurrentPosition7)
     console.log('RAT 7 CURRENT POSITION', ratCurrentPosition7)
     
     ratTimerSeven = setInterval(() => {
 
       removeUnsafeClass(ratCurrentPosition7)
+      removeRatClass(ratCurrentPosition7)
       if (ratCurrentPosition7 <= 153 && ratCurrentPosition7 >= 140) {
         console.log('rat 7 moving')
         ratCurrentPosition7++
@@ -308,16 +325,19 @@ function init() {
       console.log('RAT 7 UPDATED CURRENT>>', ratCurrentPosition7)
     
       addUnsafeClass(ratCurrentPosition7)
-    }, 700)
+      addRatClass(ratCurrentPosition7)
+    }, 2000)
   }
 
   function moveRatEight() {
     addUnsafeClass(ratCurrentPosition8)
+    addRatClass(ratCurrentPosition8)
     console.log('RAT CURRENT POSITION', ratCurrentPosition8)
     
     ratTimerEight = setInterval(() => {
 
       removeUnsafeClass(ratCurrentPosition8)
+      removeRatClass(ratCurrentPosition8)
       if (ratCurrentPosition8 <= 125 && ratCurrentPosition8 >= 112 + 1) {
         console.log('rat moving')
         ratCurrentPosition8--
@@ -329,16 +349,19 @@ function init() {
       console.log('RAT UPDATED CURRENT>>', ratCurrentPosition8)
     
       addUnsafeClass(ratCurrentPosition8)
-    }, 500)
+      addRatClass(ratCurrentPosition8)
+    }, 2000)
   }
 
   function moveRatNine() {
     addUnsafeClass(ratCurrentPosition9)
+    addRatClass(ratCurrentPosition9)
     console.log('RAT CURRENT POSITION', ratCurrentPosition9)
     
     ratTimerNine = setInterval(() => {
 
       removeUnsafeClass(ratCurrentPosition9)
+      removeRatClass(ratCurrentPosition9)
       if (ratCurrentPosition9 <= 125 && ratCurrentPosition9 >= 112 + 1) {
         console.log('rat moving')
         ratCurrentPosition9--
@@ -350,16 +373,19 @@ function init() {
       console.log('RAT UPDATED CURRENT>>', ratCurrentPosition9)
     
       addUnsafeClass(ratCurrentPosition9)
-    }, 500)
+      addRatClass(ratCurrentPosition9)
+    }, 2000)
   }
 
   function moveRatTen() {
-    addUnsafeClass(ratCurrentPosition9)
+    addUnsafeClass(ratCurrentPosition10)
+    addRatClass(ratCurrentPosition10)
     console.log('RAT CURRENT POSITION', ratCurrentPosition10)
     
     ratTimerTen = setInterval(() => {
 
       removeUnsafeClass(ratCurrentPosition10)
+      removeRatClass(ratCurrentPosition10)
       if (ratCurrentPosition10 <= 125 && ratCurrentPosition10 >= 112 + 1) {
         console.log('rat moving')
         ratCurrentPosition10--
@@ -371,7 +397,8 @@ function init() {
       console.log('RAT UPDATED CURRENT>>', ratCurrentPosition10)
     
       addUnsafeClass(ratCurrentPosition10)
-    }, 500)
+      addRatClass(ratCurrentPosition10)
+    }, 2000)
   }
   
     
