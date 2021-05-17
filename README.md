@@ -212,4 +212,30 @@ All of the visuals are background images or colours that were applied to the cel
 There are some  details I would adjust in the styling, such as aligning the pipes, changing the png of the snail when it moves in different directions, adding more custom styling to the popups. Working out how to make the fire GIF move. I aldo planned to have some ‘trash’ in the main browser window. 
 
 
-## Bugs, Blockers, Wins, Challenges, Future Features, Key Learning 
+## Bugs
+- When the snail class is in the same cell as another class, only the background image of the snail class is shown. This makes it confusing for the player because it is not clear what land the snail is on.
+- I originally had 3 twigs where the strip of green is in the water. However the 'board' class failed to add to these twigs so the snail coudlnt go on them because it was still deemed as 'unsafe' land. Because I noticed this bug very close to the end I had to improvise and just put a strip of safe land there instead. 
+
+
+## Challenges
+- Along the way I definitely encountered many errors and rarely got things working correctly first time. For example an issue with a duplicate snail, the animations speeding up when the player restarted, among others. 
+- I found the concept of a start game function quite difficult to begin with as I wasnt sure how much of the logic I had written would go inside it. 
+- Sticking with things I found more simple (such as timers and if statements) and not exploring other more concise methods (partly due to time constraints).  
+
+## Wins
+- Although it could do with some tweaks I like the overall feel of the visuals, the bits I was most happy with being the crisp packets and glowing pipes that loom into the dark pool. 
+- Patience and paying attention to detail. There was quite a bit of repetition when it came to the animated items. I tried to get one to work firs t before I did the rest, but occassionaly I would need to change something so I would have to go through each one individually (a reason to have mroe automated code). Also, if a number or name was slightly wrong it could create a big error, however I think I would pick up on this quickly. 
+
+## Future Improvements
+- Solve the bugs (twigs issue & snail replacing background)
+- Simplifying bits of the code for example less classes so the conditionals are less complicated.
+- Find a way of animating the obstacles and boards in a more smooth manner.
+- Fewer cells so I could populate it with less items and the items would appear larger. 
+- Larger scale rats. 
+- Snail changes direction when player moves it. (ie. turns to the right when player presses right arrow key)
+- Rats face the way they are moving. 
+- Levels that increase in difficulty, lives. 
+
+
+## Key Learning
+- As this was my first project, I learned how to achieve each stage from wireframe to deployment and what working style is suited to this type of project. For example allowing lots of time to sort through bugs. Also searching online for solutions, such as on Stack Overflow. Getting used to solving bugs in different ways, such as looking through my code carefully for errors, using the different features on Visual Studio Code, searching online using sites like Stack Overflow. 
