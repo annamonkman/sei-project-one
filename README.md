@@ -1,15 +1,20 @@
 # Project One - Frogger
 
 ## Contents
-Overview<br/>
-[Deployed Project](#project) <br/>
+[Overview](#overview)<br/>
+[Deployed Project](#project)<br/>
 [Technologies Used](#tech)<br/>
 [Brief](#brief)<br/>
 [Process](#process)<br/>
+[Bugs](#bugs)<br/>
+[Challenges](#challenges)<br/>
+[Wins](#wins)<br/>
+[Future Improvements](#future)<br/>
+[Key Learning](#learning)<br/>
 
 
 
-## Overview
+## <a name="overview"></a>Overview
 This was my first project on General Assembly’s Software Engineering Immersive course. The goal was to build a functioning browser-based game with Vanilla JavaScript in a week.
 
 ![game-screenshot](./images/frogger-game-img-1.png)
@@ -17,10 +22,7 @@ This was my first project on General Assembly’s Software Engineering Immersive
 ## <a name="project"></a>Link to deployed project
 The game has been deployed with GitHub Pages and is available [here](https://annamonkman.github.io/sei-project-one/), this currently has some issues with images showing up that I will sort out asap. <br/>
 <br/>
-OR 
-1.	Access the source code from the ‘Clone or download’ button
-2.	Open the index.html file in your browser to start the game </br>
-Click on start button, navigate the snail with the arrow keys on your keyboards, get to the pipes at the end to win but avoid the rats, holes and fire. Green is safe land & go on the boards to get across the oily stream. 
+Directions: Click on the start button, navigate the snail with the arrow keys on your keyboards, get to the pipes at the end to win but avoid the rats, holes and fire. Green is safe land & go on the boards to get across the oily river. 
 
 
 ## <a name="tech"></a>Technologies Used
@@ -30,16 +32,18 @@ Click on start button, navigate the snail with the arrow keys on your keyboards,
 *	Git
 *	GitHub
 *	Procreate on iPad
+* Adobe Photoshop
+* VSCode
 
 ## Brief
 The idea of Frogger is to guide a family of frogs across a road, and a river to their homes at the top of the screen.
 To make things more challenging there are numerous moving obstacles that the frogs must avoid to reach their destination.
-The game must be playable for one player and the obstacles should be auto generated.
+The game must be playable for one player and the obstacles should be auto generated. </br>
 I wanted to give the game my own twist so chose to feature a snail instead of a frog, with the goal to help the snail get across a post-apocalyptic-esque wasteland with rats instead of cars and crisp packets and dried twigs for the boards. 
 
 ## Process
 
-### Day 1 Fri 19: Plan
+### Day 1: Plan
 Being new to JavaScript I wanted to keep my game simple and focus on meeting the brief requirements as well as I could. I started by wireframing the visuals and pseudo-coding the MVP. My MVP was to move one snail across the grid to the pipes at the top, with start game, restart game, win and lose functionality and collisions. I planned my time so that I would aim to reach the MVP after 5 days then have 2 days remaining for bugs and styling. 
 
 
@@ -66,10 +70,10 @@ I started by creating the grid that would house the game. In index.html I create
   }
 ```
 
-I then added a snail class to the cell at the snail start position. When adding classes for each item I gave these a background colour in CSS so it was made clear visually where they were positioned. To allow the user to move the snail I added an event listener on the keyup event and handleKeyUp, addSnail and removeSnail functions. <br/>
+I then added a snail class to the cell at the snail start position. When adding classes for each item I gave these a background colour in CSS so their positioning was clear to me visually. To allow the user to move the snail I added an event listener on the keyup event and handleKeyUp, addSnail and removeSnail functions. <br/>
 The handleKeyUp function:
-- has a condition so that when the popup is displayed (etc.), the user cannot move the snail. 
-- has an if statement to define the barrieres of where the snail can be moved within.
+- has a condition so that when the start/restart game popups are displayed, the user cannot move the snail. 
+- has an if statement to define the barriers of where the snail can be moved within.
 -	removes the snail then adds it back into its new position. 
 ```javascript
 function handleKeyUp(event) {
@@ -95,12 +99,12 @@ function handleKeyUp(event) {
   }
 ```
 
-### Day 3 – 7: safe and unsafe land, timers, win & lose logic, styling
+### Day 3 – 7: Safe and Unsafe land, Timers, Collisions, Win & Lose logic, Styling
 
-### Adding safe & unsafe land
+### Adding Safe & Unsafe Land
 
-Much of the game logic revolves around having ‘safe’ areas and ‘unsafe’ areas. If the snail collides with something unsafe it will die, ending the game, and if it collides with something safe, the user can continue. 
-For the areas that took up a lot of space, I stored an array of the cell index numbers of where I wanted the areas to be placed in a const. ie. const unsafeLandArray = [0, 1, 2, 3, 4 etc.]. If I was to edit my code I would use a for-loop to be more economical. 
+Much of the game logic revolves around having ‘safe’ areas and ‘unsafe’ areas. If the snail collides with something unsafe it will die, ending the game, and if it collides with something safe, the user can continue. </br>
+For the areas that took up a lot of space, I stored an array of the cell index numbers of where I wanted the areas to be placed in a const. ie. const unsafeLandArray = [0, 1, 2, 3, 4 etc.]. If I was to edit my code I would use a for-loop to be more economical with time and space. </br>
 To add the classes to their respective cells, I created functions ie. addWaterClass(position) so, for each item add the water class to the cell. Then I called the functions towards the end of the code, passing the array as an argument. 
 
 ```javascript
@@ -115,8 +119,8 @@ const startStripArray = [168, 169, 170, 171, 172, 173, 174, 175, 176, 177, 178, 
 
 ### Moving the rats and boards
 
-I started with just trying to animate one rat.
-I created a function moveRat() that added the rat class (and unsafe land class for the lose collision) then I created a setInterval timer to update the let variable. The timer would, every 800 milliseconds, remove the rat class, then if the ratCurrentPosition was between certain cells, + or - 1 to the ratCurrentPosition to move it by one cell, and if the rat is not between certain cells, then + or – 13 (the number of cells in a row of the grid) to give it the appearance of a new rat coming into the game. Then I called the addRatClass() to .
+Since there would be a lot of moving items, I wanted to get one working first, then apply this code to the others. </br>
+I created a function moveRat() that adds the rat class (and unsafe land class for the lose collision) then runs a setInterval timer to update the let variable. The timer would, every 800 milliseconds, remove the rat class, then if the ratCurrentPosition was between certain cells, + or - 1 to the ratCurrentPosition to move it by one cell, and if the rat is not between certain cells, then + or – 13 (the number of cells in a row of the grid) to give it the appearance of a new rat coming into the game. Then I called the addRatClass() to add the rat into its new position.</br>
 Since this method was eventually successful (although a little jumpy), I decided to apply it to the twigs & crisp packets as well. This did mean that my final code had a lot of repetition since I had a lot of items on timers. And it was quite time consuming to type out. 
 
 ```javascript
@@ -142,8 +146,8 @@ function moveRatOne() {
 ```
 
 ### Die/Lose Logic
-I needed to create a function for when the snail goes on unsafe land. The function runs an if statement that checks if the cells with index of the snailCurrentPosition contains unsafeLandClass, & if so, sets a Timeout to call the removeSnail() function to show the snail has died. <br/>
-Initially I didn’t clear the intervals of the animated elements so they kept running whilst the popup was there and technically the player could continue playing the game. 
+I needed to create a function for when the snail goes on unsafe land or collides with a rat. The function runs an if statement that checks if the cells with index of the snailCurrentPosition contains unsafeLandClass, & if so, sets a Timeout to call the removeSnail() function to show the snail has died. <br/>
+Initially I didn’t clear the intervals of the moving items so when the player restarted the game, the timers became messed up and moved quicker. I realised I had to stop everything then restart them again. 
 
 ```javascript
 function snailDie() {
@@ -166,7 +170,6 @@ function snailDie() {
 ### Win Logic
 
 I created a function that would run when the snail gets to the pipes at the top. 
-Code snippet. 
 
 ```javascript
 function snailWin() {
@@ -181,10 +184,14 @@ function snailWin() {
   }
 ```
 
-### Start Game, restart game
+### Start Game, Restart Game
 
-In HTML I created three divs for the start lose and win pop-ups with buttons on. In CSS I gave them an ‘absolute’ position and display of ‘none’. 
-I added event listeners to the start and restart buttons that would call the startGame function. In this function it started with the popup display to ‘none’. Then it calls all of the fucntions that move the animated items ie. moveCrispsFive, moveRatNine at the current position that is stored in a let variable. It also adds the snail at the snailCurrentPosition. I had an issue at first with the animated items speeding up when I restarted. 
+In the HTML I created three divs for the start lose and win pop-ups with buttons on. In CSS I gave them an ‘absolute’ position and display of ‘none’. </br>
+I added event listeners to the start and restart buttons that would call the startGame function. </br>
+The startGame function:
+- Changes popup display to 'none'.
+- Calls all of the functions that move the animated items ie. moveCrispsFive, moveRatNine at the current position that is stored in a let variable.
+- Adds the snail at the snailCurrentPosition.
 
 ```javascript
 function startGame(event) {
@@ -206,36 +213,40 @@ function startGame(event) {
 ```
 
 ### Styling
-I looked at my archive of images for some inspiration. I had been to an exhibition of Urs Fisher work at Sadie Coles. I hoped to give the arcade game a more contemporary feel with a dream-like quality. 
-I drew the visuals in Procreate on an iPad at a very low resolutions since they’d be displayed very small-scale. 
-All of the visuals are background images or colours that were applied to the cells. 
-There are some  details I would adjust in the styling, such as aligning the pipes, changing the png of the snail when it moves in different directions, adding more custom styling to the popups. Working out how to make the fire GIF move. I aldo planned to have some ‘trash’ in the main browser window. 
+I looked at my archive of images for some inspiration and found some photos from an exhibition of screen prints by Urs Fischers on show 'soft' at Sadie Coles Gallery, London. I wanted a similar dreamlike, artificial quality and to use colours that show up strongly on screens. </br>
+I drew the visuals in Procreate on an iPad at a very low resolutions since they’d be displayed very small-scale. </br>
+All of the visuals are background images or colours that were applied to the cells. </br>
+There are some  details I would adjust in the styling, such as aligning the pipes, changing the png of the snail when it moves in different directions, adding more custom styling to the popups. Working out how to make the fire GIF move. Also some more decoration in the main window such as pieces of trash. 
 
+<img src="./images/snail-detail.png" width="400" >
 
-## Bugs
+## <a name="bugs"></a>Bugs
 - When the snail class is in the same cell as another class, only the background image of the snail class is shown. This makes it confusing for the player because it is not clear what land the snail is on.
-- I originally had 3 twigs where the strip of green is in the water. However the 'board' class failed to add to these twigs so the snail coudlnt go on them because it was still deemed as 'unsafe' land. Because I noticed this bug very close to the end I had to improvise and just put a strip of safe land there instead. 
+- I originally had 3 twigs where the strip of green is in the water. However the 'board' class failed to add to these twigs meaning they are unsafe for the snail to go on. Because I noticed this bug very close to the end I had to improvise and just put a strip of safe land there instead. 
 
 
-## Challenges
+## <a name="challenges"></a>Challenges
 - Along the way I definitely encountered many errors and rarely got things working correctly first time. For example an issue with a duplicate snail, the animations speeding up when the player restarted, among others. 
-- I found the concept of a start game function quite difficult to begin with as I wasnt sure how much of the logic I had written would go inside it. 
-- Sticking with things I found more simple (such as timers and if statements) and not exploring other more concise methods (partly due to time constraints).  
+- I found the concept of a start game function quite difficult to begin with as I wasnt sure how much of the logic I had written would go inside it. In general figuring out what functions would do what and where they should be called. 
+- Sticking with things I found more simple to understand (such as interval timers and if statements) and not exploring other more concise methods (partly due to time constraints).  
 
-## Wins
+## <a name="wins"></a>Wins
 - Although it could do with some tweaks I like the overall feel of the visuals, the bits I was most happy with being the crisp packets and glowing pipes that loom into the dark pool. 
-- Patience and paying attention to detail. There was quite a bit of repetition when it came to the animated items. I tried to get one to work firs t before I did the rest, but occassionaly I would need to change something so I would have to go through each one individually (a reason to have mroe automated code). Also, if a number or name was slightly wrong it could create a big error, however I think I would pick up on this quickly. 
+- Patience and paying attention to detail. There was quite a bit of repetition when it came to the animated items. I tried to get one to work firs t before I did the rest, but occassionaly I would need to change something so I would have to go through each one individually (a reason to have mroe automated code). Also, if a number or name was slightly wrong it could create a big error, however I think picked up on these quickly.
+- Commenting and organising my code.  
+- Learning a lot about how to work with vanilla JavaScript.
 
-## Future Improvements
+## <a name="future"></a>Future Improvements
 - Solve the bugs (twigs issue & snail replacing background)
-- Simplifying bits of the code for example less classes so the conditionals are less complicated.
+- Simplifying bits of the code, for example less classes so the conditionals are less complicated.
 - Find a way of animating the obstacles and boards in a more smooth manner.
 - Fewer cells so I could populate it with less items and the items would appear larger. 
-- Larger scale rats. 
-- Snail changes direction when player moves it. (ie. turns to the right when player presses right arrow key)
+- Larger rats. 
+- Snail changes direction when player moves it. (ie. turns to the right when player presses right arrow key).
 - Rats face the way they are moving. 
-- Levels that increase in difficulty, lives. 
+- More complex: levels that increase in difficulty, lives. 
 
 
-## Key Learning
-- As this was my first project, I learned how to achieve each stage from wireframe to deployment and what working style is suited to this type of project. For example allowing lots of time to sort through bugs. Also searching online for solutions, such as on Stack Overflow. Getting used to solving bugs in different ways, such as looking through my code carefully for errors, using the different features on Visual Studio Code, searching online using sites like Stack Overflow. 
+## <a name="learning"></a>Key Learning
+- As this was my first project, I learned how to achieve each stage from wireframe to deployment and what working style is suited to this type of project. For example I learnt the importance of allowing lots of time to sort through bugs. 
+- Getting used to solving bugs in different ways, such as looking through my code carefully for errors, using the different features on Visual Studio Code, searching online using sites like Stack Overflow. 
