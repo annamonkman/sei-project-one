@@ -150,7 +150,7 @@ body {
   /* background-color: silver; */
 }
 .popup-start, .popup-lose, .popup-win{
-  position:absolute;
+  position: absolute;
   width: 900px;
   height: 700px;
   background: transparent;

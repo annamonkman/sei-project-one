@@ -91,7 +91,7 @@ function init() {
   let ratCurrentPosition8 = 124
   let ratCurrentPosition9 = 120
   let ratCurrentPosition10 = 116
-  let ratCurrentPosition
+  // let ratCurrentPosition
 
   let boardCurrentPosition1 = 84
   let boardCurrentPosition2 = 85
@@ -226,9 +226,9 @@ function init() {
   function snailDie() {
     console.log('snail current pos >>', snailCurrentPosition)
     if (
-    cells[snailCurrentPosition].classList.contains(unsafeLandClass) && 
-    !cells[snailCurrentPosition].classList.contains(boardClass) &&
-    !cells[snailCurrentPosition].classList.contains(pipeClass)) /*|| cells[ratCurrentPosition1].classList.contains(snailClass) === true)*/ {
+      cells[snailCurrentPosition].classList.contains(unsafeLandClass) && 
+      !cells[snailCurrentPosition].classList.contains(boardClass) &&
+      !cells[snailCurrentPosition].classList.contains(pipeClass)) /*|| cells[ratCurrentPosition1].classList.contains(snailClass) === true)*/ {
       setTimeout(() => {
         popupLose.style.display = 'block'
         removeSnail(snailCurrentPosition)
@@ -423,7 +423,7 @@ function init() {
 
       removeUnsafeClass(ratCurrentPosition5)
       removeRatClass(ratCurrentPosition5)
-      if (ratCurrentPosition5 <= 153-1 && ratCurrentPosition5 >= 140) {
+      if (ratCurrentPosition5 <= 153 - 1 && ratCurrentPosition5 >= 140) {
         console.log('rat 5 moving')
         ratCurrentPosition5++
       } else {
@@ -447,7 +447,7 @@ function init() {
 
       removeUnsafeClass(ratCurrentPosition6)
       removeRatClass(ratCurrentPosition6)
-      if (ratCurrentPosition6 <= 153-1 && ratCurrentPosition6 >= 140) {
+      if (ratCurrentPosition6 <= 153 - 1 && ratCurrentPosition6 >= 140) {
         console.log('rat 6 moving')
         ratCurrentPosition6++
       } else {
@@ -471,7 +471,7 @@ function init() {
 
       removeUnsafeClass(ratCurrentPosition7)
       removeRatClass(ratCurrentPosition7)
-      if (ratCurrentPosition7 <= 153-1 && ratCurrentPosition7 >= 140) {
+      if (ratCurrentPosition7 <= 153 - 1 && ratCurrentPosition7 >= 140) {
         console.log('rat 7 moving')
         ratCurrentPosition7++
       } else {
@@ -567,7 +567,7 @@ function init() {
 
       removeBoardClass(boardCurrentPosition1)
       removeTwigStartClass(boardCurrentPosition1)
-      if (boardCurrentPosition1 <= 97-1 && boardCurrentPosition1 >= 84) {
+      if (boardCurrentPosition1 <= 97 - 1 && boardCurrentPosition1 >= 84) {
         console.log('board 1 moving')
         boardCurrentPosition1++
       } else {
@@ -590,7 +590,7 @@ function init() {
 
       removeBoardClass(boardCurrentPosition2)
       removeTwigMiddleClass(boardCurrentPosition2)
-      if (boardCurrentPosition2 <= 97-1 && boardCurrentPosition2 >= 84) {
+      if (boardCurrentPosition2 <= 97 - 1 && boardCurrentPosition2 >= 84) {
         console.log('board 2 moving')
         boardCurrentPosition2++
       } else {
@@ -613,7 +613,7 @@ function init() {
 
       removeBoardClass(boardCurrentPosition3)
       removeTwigEndClass(boardCurrentPosition3)
-      if (boardCurrentPosition3 <= 97-1 && boardCurrentPosition3 >= 84) {
+      if (boardCurrentPosition3 <= 97 - 1 && boardCurrentPosition3 >= 84) {
         console.log('board 3 moving')
         boardCurrentPosition3++
       } else {
@@ -637,7 +637,7 @@ function init() {
 
       removeBoardClass(boardCurrentPosition4)
       removeTwigStartClass(boardCurrentPosition4)
-      if (boardCurrentPosition4 <= 97-1 && boardCurrentPosition4 >= 84) {
+      if (boardCurrentPosition4 <= 97 - 1 && boardCurrentPosition4 >= 84) {
         console.log('board 4 moving')
         boardCurrentPosition4++
       } else {
@@ -660,7 +660,7 @@ function init() {
 
       removeBoardClass(boardCurrentPosition5)
       removeTwigMiddleClass(boardCurrentPosition5)
-      if (boardCurrentPosition5 <= 97-1 && boardCurrentPosition5 >= 84) {
+      if (boardCurrentPosition5 <= 97 - 1 && boardCurrentPosition5 >= 84) {
         console.log('board 5 moving')
         boardCurrentPosition5++
       } else {
@@ -683,7 +683,7 @@ function init() {
 
       removeBoardClass(boardCurrentPosition6)
       removeTwigEndClass(boardCurrentPosition6)
-      if (boardCurrentPosition6 <= 97-1 && boardCurrentPosition6 >= 84) {
+      if (boardCurrentPosition6 <= 97 - 1 && boardCurrentPosition6 >= 84) {
         console.log('board 6 moving')
         boardCurrentPosition6++
       } else {
