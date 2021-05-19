@@ -19,7 +19,7 @@ This was my first project on General Assembly’s Software Engineering Immersive
 
 ![game-screenshot](./images/frogger-game-img-1.png)
 
-## <a name="project"></a>Link to deployed project
+## <a name="project"></a>Link to Deployed Project
 The game has been deployed with GitHub Pages and is available [here](https://annamonkman.github.io/sei-project-one/), this currently has some issues with images showing up that I will sort out asap. <br/>
 <br/>
 Directions: Click on the start button, navigate the snail with the arrow keys on your keyboards, get to the pipes at the end to win but avoid the rats, holes and fire. Green is safe land & go on the boards to get across the oily river. 
@@ -35,13 +35,14 @@ Directions: Click on the start button, navigate the snail with the arrow keys on
 * Adobe Photoshop
 * VSCode
 
-## Brief
+## <a name="brief"></a>Brief
 The idea of Frogger is to guide a family of frogs across a road, and a river to their homes at the top of the screen.
 To make things more challenging there are numerous moving obstacles that the frogs must avoid to reach their destination.
 The game must be playable for one player and the obstacles should be auto generated. </br>
+</br>
 I wanted to give the game my own twist so chose to feature a snail instead of a frog, with the goal to help the snail get across a post-apocalyptic-esque wasteland with rats instead of cars and crisp packets and dried twigs for the boards. 
 
-## Process
+## <a name="process"></a>Process
 
 ### Day 1: Plan
 Being new to JavaScript I wanted to keep my game simple and focus on meeting the brief requirements as well as I could. I started by wireframing the visuals and pseudo-coding the MVP. My MVP was to move one snail across the grid to the pipes at the top, with start game, restart game, win and lose functionality and collisions. I planned my time so that I would aim to reach the MVP after 5 days then have 2 days remaining for bugs and styling. 
@@ -71,6 +72,7 @@ I started by creating the grid that would house the game. In index.html I create
 ```
 
 I then added a snail class to the cell at the snail start position. When adding classes for each item I gave these a background colour in CSS so their positioning was clear to me visually. To allow the user to move the snail I added an event listener on the keyup event and handleKeyUp, addSnail and removeSnail functions. <br/>
+</br>
 The handleKeyUp function:
 - has a condition so that when the start/restart game popups are displayed, the user cannot move the snail. 
 - has an if statement to define the barriers of where the snail can be moved within.
@@ -232,7 +234,7 @@ There are some  details I would adjust in the styling, such as aligning the pipe
 
 ## <a name="wins"></a>Wins
 - Although it could do with some tweaks I like the overall feel of the visuals, the bits I was most happy with being the crisp packets and glowing pipes that loom into the dark pool. 
-- Patience and paying attention to detail. There was quite a bit of repetition when it came to the animated items. I tried to get one to work firs t before I did the rest, but occassionaly I would need to change something so I would have to go through each one individually (a reason to have mroe automated code). Also, if a number or name was slightly wrong it could create a big error, however I think picked up on these quickly.
+- Patience and paying attention to detail. There was quite a bit of repetition when it came to the animated items. I tried to get one to work first before I did the rest, but occassionaly I would need to change something so I would have to go through each one individually (a reason to have mroe automated code). Also, if a number or name was slightly wrong it could create a big error, however I think picked up on these quickly.
 - Commenting and organising my code.  
 - Learning a lot about how to work with vanilla JavaScript.
 
@@ -242,9 +244,10 @@ There are some  details I would adjust in the styling, such as aligning the pipe
 - Find a way of animating the obstacles and boards in a more smooth manner.
 - Fewer cells so I could populate it with less items and the items would appear larger. 
 - Larger rats. 
+- Get snail to move with the crisp packets and twigs. 
 - Snail changes direction when player moves it. (ie. turns to the right when player presses right arrow key).
 - Rats face the way they are moving. 
-- More complex: levels that increase in difficulty, lives. 
+- More complex improvements: levels of the game that increase in difficulty & a 'lives' counter that goes down if the snail dies. 
 
 
 ## <a name="learning"></a>Key Learning
