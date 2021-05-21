@@ -15,14 +15,16 @@
 
 
 ## <a name="overview"></a>Overview
-This was my first project on General Assembly’s Software Engineering Immersive course. The goal was to build a functioning browser-based game with Vanilla JavaScript in a week.
+This was my first project on General Assembly’s Software Engineering Immersive course. The goal was to build a functioning browser-based game with Vanilla JavaScript in **7 Days**. </br>
+</br>
 
-![game-screenshot](./images/frogger-game-img-1.png)
+![demovid](./images/froggerdemovid2.gif)
 
 ## <a name="project"></a>Link to Deployed Project
 The game has been deployed with GitHub Pages and is available [here](https://annamonkman.github.io/sei-project-one/), this currently has some issues with images showing up that I will sort out asap. <br/>
 <br/>
-Directions: Click on the start button, navigate the snail with the arrow keys on your keyboards, get to the pipes at the end to win but avoid the rats, holes and fire. Green is safe land & go on the boards to get across the oily river. 
+
+**Directions:** Click on the start button, navigate the snail with the arrow keys on your keyboards, get to the pipes at the end to win but avoid the rats, holes and fire. Green is safe land & go on the boards to get across the oily river. 
 
 
 ## <a name="tech"></a>Technologies Used
@@ -48,7 +50,7 @@ I wanted to give the game my own twist so chose to feature a snail instead of a 
 Being new to JavaScript I wanted to keep my game simple and focus on meeting the brief requirements as well as I could. I started by wireframing the visuals and pseudo-coding the MVP. My MVP was to move one snail across the grid to the pipes at the top, with start game, restart game, win and lose functionality and collisions. I planned my time so that I would aim to reach the MVP after 5 days then have 2 days remaining for bugs and styling. 
 
 
-### Day 2: creating the grid and moving the snail
+### Day 2: Creating the Grid and Moving the Snail
 I started by creating the grid that would house the game. In index.html I created a parent div with class name ‘grid’. In app.js I wrote a function createGrid(), using a for-loop to create divs (cells) and pushed these to an empty array, which was then appended to the parent div. 
 
 ```javascript
@@ -119,7 +121,7 @@ const startStripArray = [168, 169, 170, 171, 172, 173, 174, 175, 176, 177, 178, 
   }
 ```
 
-### Moving the rats and boards
+### Moving the Rats and Boards
 
 Since there would be a lot of moving items, I wanted to get one working first, then apply this code to the others. </br>
 I created a function moveRat() that adds the rat class (and unsafe land class for the lose collision) then runs a setInterval timer to update the let variable. The timer would, every 800 milliseconds, remove the rat class, then if the ratCurrentPosition was between certain cells, + or - 1 to the ratCurrentPosition to move it by one cell, and if the rat is not between certain cells, then + or – 13 (the number of cells in a row of the grid) to give it the appearance of a new rat coming into the game. Then I called the addRatClass() to add the rat into its new position.</br>
