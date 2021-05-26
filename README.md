@@ -241,7 +241,7 @@ There are some  details I would adjust in the styling, such as aligning the pipe
 - Learning a lot about how to work with vanilla JavaScript.
 
 ## <a name="future"></a>Future Improvements
-- Solve the bugs (twigs issue & snail replacing background)
+- Solve the bugs (twigs issue & snail replacing background).
 - Simplifying bits of the code, for example less classes so the conditionals are less complicated.
 - Find a way of animating the obstacles and boards in a more smooth manner.
 - Fewer cells so I could populate it with less items and the items would appear larger. 
