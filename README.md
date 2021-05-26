@@ -21,7 +21,7 @@ This was my first project on General Assembly’s Software Engineering Immersive
 ![demovid](./images/froggerdemovid2.gif)
 
 ## <a name="project"></a>Link to Deployed Project
-The game has been deployed with GitHub Pages and is available [here](https://annamonkman.github.io/sei-project-one/) <br/>
+The game has been deployed with GitHub Pages and is available [here](https://annamonkman.github.io/sei-project-one/). <br/>
 <br/>
 
 **Directions:** Click on the start button, navigate the snail with the arrow keys on your keyboards, get to the pipes at the end to win but avoid the rats, holes and fire. Green is safe land & go on the boards to get across the oily river. 
