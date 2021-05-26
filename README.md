@@ -21,7 +21,7 @@ This was my first project on General Assembly’s Software Engineering Immersive
 ![demovid](./images/froggerdemovid2.gif)
 
 ## <a name="project"></a>Link to Deployed Project
-The game has been deployed with GitHub Pages and is available [here](https://annamonkman.github.io/sei-project-one/), this currently has some issues with images showing up that I will sort out asap. <br/>
+The game has been deployed with GitHub Pages and is available [here](https://annamonkman.github.io/sei-project-one/) <br/>
 <br/>
 
 **Directions:** Click on the start button, navigate the snail with the arrow keys on your keyboards, get to the pipes at the end to win but avoid the rats, holes and fire. Green is safe land & go on the boards to get across the oily river. 
@@ -246,7 +246,7 @@ There are some  details I would adjust in the styling, such as aligning the pipe
 - Find a way of animating the obstacles and boards in a more smooth manner.
 - Fewer cells so I could populate it with less items and the items would appear larger. 
 - Larger rats. 
-- Get snail to move with the crisp packets and twigs. 
+- Get snail to move along with the crisp packets and twigs. 
 - Snail changes direction when player moves it. (ie. turns to the right when player presses right arrow key).
 - Rats face the way they are moving. 
 - More complex improvements: levels of the game that increase in difficulty & a 'lives' counter that goes down if the snail dies. 

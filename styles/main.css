@@ -53,7 +53,7 @@ body {
   background-color: #cec8b7;
 }
 .grid div.rat {
-  background-image: url('../images/rat1.png');
+  background-image: url('../images/rat1.PNG');
   background-repeat: no-repeat;
   background-size: contain;
   /* background-color: #cec8b7; */
