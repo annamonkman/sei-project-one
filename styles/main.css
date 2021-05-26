@@ -57,7 +57,7 @@ body {
   background-repeat: no-repeat;
   background-size: contain;
   /* background-color: #cec8b7; */
-  transform: scale(1);
+  /* transform: scale(1); */
   background-position-y: center;
 }
 
@@ -154,7 +154,7 @@ body {
   width: 900px;
   height: 700px;
   background: transparent;
-  background-image: url('../images/snailbigbubble2.PNG');
+  background-image: url('../images/snailbigbubble2.png');
   /* border: 1px solid red; */
   /* display: none; */
 }
